@@ -519,6 +519,12 @@ class Strings:
             "core": "custom", 
             "attribute": "HeatIdx",
             "description": "Índice térmico médio ((SensorTemperature + LensTemperature) / 2) em °C. Indica superaquecimento/ruído. [HeatIdx]"
+        },
+        "speed_3d_kmh": {
+            "normalized": "Custom:speed_3d_kmh",
+            "core": "custom",
+            "attribute": "SpdKmH",
+            "description": "Velocidade 3D do drone em km/h (speed_3d * 3.6). Formato legível para relatórios. [SpdKmH]"
         }
     }
     

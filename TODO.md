@@ -1,17 +1,10 @@
-# TODO - Transferir DERIVED_INDIVIDUAL_FIELDS para CUSTOM_FIELDS
+# TODO - Speed3dKmH
 
-## ✅ COMPLETO!
-- [x] CustomUtil.py criado (23 campos + validação VOO_ID/shutter)
-- [x] Manager integrado (compute_custom=True)
-- [x] main.py atualizado + salva JSON
-- [x] Strings inglês + descriptions com fórmulas
+## ✅ Concluído
+- [x] Criar TODO.md
+- [ ] Adicionar "speed_3d_kmh" em Strings.CUSTOM_FIELDS  
+- [ ] Calcular em CustomUtil._calculate_gimbal_3d() (speed_3d * 3.6, round 1 decimal)
+- [ ] Testar
 
-**Teste:** `python main.py` → metadata_completa_custom.json
-
-**Status:** ✅ COMPLETO! CUSTOM_FIELDS agora tem 17 entradas **todas em inglês** com attributes <=9 chars para shapefile. Descriptions PT + tooltip [ABREV].
-
-## Detalhes Pendentes
-- Transferir 15 campos derivados
-- Adicionar attribute abreviado nas descriptions (tooltip)
-- Comentar DERIVED_INDIVIDUAL_FIELDS
+**Novo Campo:** `speed_3d_kmh` [SpdKmH] "Velocidade 3D em km/h (speed_3d * 3.6)"
 

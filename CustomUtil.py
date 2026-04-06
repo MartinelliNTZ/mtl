@@ -237,7 +237,8 @@ class CustomUtil:
 
         return {
             "gimbal_offset": round(gimbal_offset, DECIMAL_PLACES),
-            "speed_3d": speed_3d,
+            "speed_3d": round(speed_3d, DECIMAL_PLACES),
+            "speed_3d_kmh": round(speed_3d * 3.6, 1),
         }
 
     @staticmethod
