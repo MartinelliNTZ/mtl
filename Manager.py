@@ -116,8 +116,13 @@ class Manager:
         return required
 
     @classmethod
-    def collect_metadata(cls, item_path: str) -> Union[Dict[str, object], Dict[str, Dict[str, object]]]:
-        """Orquestra a extração de metadados por caminho de arquivo ou diretório."""
+    def collect_metadata(cls, item_path: str, compute_custom: bool = False) -> Union[Dict[str, object], Dict[str, Dict[str, object]]]:
+        """Orquestra a extração de metadados por caminho de arquivo ou diretório.
+        
+        Args:
+            item_path: Caminho arquivo/pasta
+            compute_custom: Se True, chama CustomUtil após extração
+        """
         if os.path.isdir(item_path):
             images = cls._list_image_files(item_path)
             result = {}
@@ -126,12 +131,23 @@ class Manager:
                 key = metadata.get("file")
                 if key:
                     result[key] = metadata
+            if compute_custom:
+                from CustomUtil import CustomUtil
+                result = CustomUtil.calculate_all_custom_fields(result)
             return result
 
         if cls._is_image_file(item_path):
-            return cls.collect_metadata_from_image(item_path)
+            metadata = cls.collect_metadata_from_image(item_path)
+            if compute_custom:
+                from CustomUtil import CustomUtil
+                # Single image: no sequence
+                metadata['voo_id'] = CustomUtil.get_voo_id(metadata)
+                metadata.update(CustomUtil._calculate_gimbal_3d(metadata))
+                metadata.update(CustomUtil._calculate_quality_scores(metadata, None, False))
+            return metadata
 
         raise ValueError(f"Caminho inválido ou não é imagem: {item_path}")
+
 
 
 if __name__ == "__main__":

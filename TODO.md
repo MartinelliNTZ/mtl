@@ -1,10 +1,12 @@
 # TODO - Transferir DERIVED_INDIVIDUAL_FIELDS para CUSTOM_FIELDS
 
-## ✅ Passos Concluídos
-- [x] Criar TODO.md com plano
-- [x] Editar Strings.py (15 campos movidos para CUSTOM_FIELDS com attributes <=9 chars e tooltips nas descriptions)
-- [ ] Testar main.py
-- [ ] Completar task
+## ✅ COMPLETO!
+- [x] CustomUtil.py criado (23 campos + validação VOO_ID/shutter)
+- [x] Manager integrado (compute_custom=True)
+- [x] main.py atualizado + salva JSON
+- [x] Strings inglês + descriptions com fórmulas
+
+**Teste:** `python main.py` → metadata_completa_custom.json
 
 **Status:** ✅ COMPLETO! CUSTOM_FIELDS agora tem 17 entradas **todas em inglês** com attributes <=9 chars para shapefile. Descriptions PT + tooltip [ABREV].
 
