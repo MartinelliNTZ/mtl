@@ -499,6 +499,24 @@ class Strings:
             "core": "custom",
             "attribute": "OrtoPot",
             "description": "Score (0–100) que avalia a adequação da imagem para fotogrametria de alta precisão, combinando precisão RTK, angulo_de_incidencia, CalibratedFocalLength e DewarpFlag. [OrtoPot]"
+        },
+        "shutter_life_pct": {
+            "normalized": "Custom:shutter_life_pct",
+            "core": "custom",
+            "attribute": "ShutPct",
+            "description": "% de vida útil da câmera (ShutterCount / 400000 * 100). Máximo ~400k fotos Zenmuse. [ShutPct]"
+        },
+        "ground_sample_distance_cm": {
+            "normalized": "Custom:ground_sample_distance_cm",
+            "core": "custom",
+            "attribute": "GsdCmPx",
+            "description": "GSD resolução espacial solo (cm/pixel) = LRFTargetDistance_cm * sensor_pitch_um / FocalLength_mm. Essencial fotogrametria. [GsdCmPx]"
+        },
+        "total_heat_index": {
+            "normalized": "Custom:total_heat_index",
+            "core": "custom", 
+            "attribute": "HeatIdx",
+            "description": "Índice térmico médio ((SensorTemperature + LensTemperature) / 2) em °C. Indica superaquecimento/ruído. [HeatIdx]"
         }
     }
     

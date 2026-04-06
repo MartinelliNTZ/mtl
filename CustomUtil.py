@@ -160,6 +160,27 @@ class CustomUtil:
         }
     
     @staticmethod
+    def _calculate_individual_fields(data: Dict) -> Dict:
+        """Campos custom individuais derivados."""
+        shutter_count = CustomUtil.safe_int(data.get('ShutterCount', 0))
+        shutter_life_pct = (shutter_count / 400000) * 100
+        
+        lrf_distance_m = CustomUtil.safe_float(data.get('LRFTargetDistance', 0))
+        focal_length_mm = CustomUtil.safe_float(data['FocalLength'])
+        sensor_pitch_um = 3.76  # M3E/M4E standard
+        gsd_cm_px = (lrf_distance_m * 100 * sensor_pitch_um) / focal_length_mm if focal_length_mm > 0 else 0  # cm/px
+        
+        sens_temp = CustomUtil.safe_float(data.get('SensorTemperature', 0))
+        lens_temp = CustomUtil.safe_float(data.get('LensTemperature', 0))
+        total_heat_index = (sens_temp + lens_temp) / 2
+        
+        return {
+            'shutter_life_pct': shutter_life_pct,
+            'ground_sample_distance_cm': gsd_cm_px,
+            'total_heat_index': total_heat_index
+        }
+
+    @staticmethod
     def _calculate_gimbal_3d(data: Dict) -> Dict:
         """GimbalOffset e 3DSpeed."""
         gim_yaw = CustomUtil.safe_float(data['GimbalYawDegree'])
@@ -254,6 +275,9 @@ class CustomUtil:
             prev_seq = cls._calculate_sequence_fields(data, prev_data, valid_prev, 'prev')
             next_seq = cls._calculate_sequence_fields(data, next_data, valid_next, 'next')
             
+            # Campos individuais NOVOS
+            individual = cls._calculate_individual_fields(data)
+            
             # Outros
             gim_3d = cls._calculate_gimbal_3d(data)
             quality = cls._calculate_quality_scores(data, prev_data, valid_prev)
@@ -265,7 +289,7 @@ class CustomUtil:
                 'voo_id': cls.get_voo_id(data)
             }
             
-            custom = {**gim_3d, **quality, **prev_seq, **next_seq, **validation}
+            custom = {**individual, **gim_3d, **quality, **prev_seq, **next_seq, **validation}
             
             result[filename] = {**data, **custom}
         
