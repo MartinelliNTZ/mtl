@@ -406,62 +406,104 @@ class Strings:
     CUSTOM_FIELDS = {
         "GimbalOffset": {
             "normalized": "xmp_bloco_1:drone-dji:GimbalOffset",
-            "core": "Custom",
+            "core": "custom",
             "attribute": "GimOffset",
-            "description": "Deslocamento do Gimbal em relaccao a aeronave (GimbalYawDegree - FlightYawDegree -180)"
+            "description": "Deslocamento do Gimbal em relação a aeronave (GimbalYawDegree - FlightYawDegree -180) [GimOffset]"
         },
         "3DSpeed": {
-            "normalized": "xmp_bloco_1:drone-dji:3DSpeed",
-            "core": "Custom",
+            "normalized": "Custom:3DSpeed",
+            "core": "custom",
             "attribute": "3DSpeed",
-            "description": "Velocidade total de deslocamento da aeronave calculada a partir das velocidades de voo X, Y e Z (FlightXSpeed, FlightYSpeed, FlightZSpeed)"
+            "description": "Velocidade total de deslocamento da aeronave calculada a partir das velocidades de voo X, Y e Z (FlightXSpeed, FlightYSpeed, FlightZSpeed) [3DSpeed]"
+        },
+        "tempo_desde_anterior": {
+            "normalized": "Custom:tempo_desde_anterior",
+            "core": "custom",
+            "attribute": "TmpAnt",
+            "description": "Tempo decorrido (segundos) desde a foto anterior, calculado como diferença entre DateTimeOriginal da foto atual e da anterior. Indica a cadência de captura. [TmpAnt]"
+        },
+        "distancia_geodesica_anterior": {
+            "normalized": "Custom:distancia_geodesica_anterior",
+            "core": "custom",
+            "attribute": "DstGeo",
+            "description": "Distância horizontal (metros) entre a posição GPS atual e a anterior, utilizando a fórmula de Haversine com as coordenadas (GPSLatitude, GPSLongitude). [DstGeo]"
+        },
+        "distancia_3d_anterior": {
+            "normalized": "Custom:distancia_3d_anterior",
+            "core": "custom",
+            "attribute": "Dst3D",
+            "description": "Distância tridimensional (metros) entre a posição atual e a anterior, combinando a distância horizontal com a diferença de altitude (AbsoluteAltitude ou GPSAltitude). [Dst3D]"
+        },
+        "velocidade_media_entre_fotos": {
+            "normalized": "Custom:velocidade_media_entre_fotos",
+            "core": "custom",
+            "attribute": "VlmMdia",
+            "description": "Velocidade média (m/s) no intervalo entre a foto anterior e a atual, calculada como distancia_3d_anterior / tempo_desde_anterior. [VlmMdia]"
+        },
+        "velocidade_linear_instantanea": {
+            "normalized": "Custom:velocidade_linear_instantanea",
+            "core": "custom",
+            "attribute": "VlinIns",
+            "description": "Módulo da velocidade vetorial (m/s) fornecida pelos campos FlightXSpeed, FlightYSpeed, FlightZSpeed: sqrt(XSpeed² + YSpeed² + ZSpeed²). [VlinIns]"
+        },
+        "direcao_deslocamento": {
+            "normalized": "Custom:direcao_deslocamento",
+            "core": "custom",
+            "attribute": "DirDesl",
+            "description": "Azimute (graus) do deslocamento entre a posição anterior e a atual, medido a partir do norte verdadeiro. Indica a direção de movimento. [DirDesl]"
+        },
+        "angulo_de_incidencia": {
+            "normalized": "Custom:angulo_de_incidencia",
+            "core": "custom",
+            "attribute": "AngIncid",
+            "description": "Ângulo (graus) entre o eixo óptico da câmera e a vertical do terreno, combinando GimbalPitchDegree e FlightPitchDegree. Importante para fotogrametria. [AngIncid]"
+        },
+        "cobertura_estimada": {
+            "normalized": "Custom:cobertura_estimada",
+            "core": "custom",
+            "attribute": "CobEst",
+            "description": "Tupla (largura_m, altura_m) estimada da área projetada no solo, baseada na altitude, campo de visão (derivado do modelo) e ângulo do gimbal. [CobEst]"
+        },
+        "sobreposicao_prevista": {
+            "normalized": "Custom:sobreposicao_prevista",
+            "core": "custom",
+            "attribute": "SobPrev",
+            "description": "Percentual de sobreposição longitudinal com a imagem anterior, calculado como (1 - (distancia_geodesica_anterior / cobertura_estimada_largura)) * 100, limitado a [0,100]. [SobPrev]"
+        },
+        "precisao_rtk_efetiva": {
+            "normalized": "Custom:precisao_rtk_efetiva",
+            "core": "custom",
+            "attribute": "PrcRTK",
+            "description": "Classificação textual da precisão RTK: 'Alta' (RtkFlag=50 e desvios < 0.02), 'Média' (desvios < 0.1), 'Baixa' (desvios >= 0.1), 'Sem RTK' (RtkFlag=0). [PrcRTK]"
+        },
+        "e_sobreposicao_ideal": {
+            "normalized": "Custom:e_sobreposicao_ideal",
+            "core": "custom",
+            "attribute": "SobIdeal",
+            "description": "Booleano indicando se a sobreposição prevista é maior ou igual a um limiar (ex.: 60%). Útil para controle de qualidade do voo. [SobIdeal]"
+        },
+        "flag_mudanca_brusca": {
+            "normalized": "Custom:flag_mudanca_brusca",
+            "core": "custom",
+            "attribute": "FlgMud",
+            "description": "Booleano que sinaliza quando o tempo_desde_anterior ou a distancia_geodesica_anterior excede significativamente a mediana do conjunto (ex.: > 2× mediana). [FlgMud]"
+        },
+        "velocidade_angular_gimbal": {
+            "normalized": "Custom:velocidade_angular_gimbal",
+            "core": "custom",
+            "attribute": "VangGim",
+            "description": "Variação de GimbalYawDegree (graus por segundo) entre a imagem atual e a anterior, indicando se o gimbal estava girando durante a captura. [VangGim]"
+        },
+        "potencial_de_ortoretificacao": {
+            "normalized": "Custom:potencial_de_ortoretificacao",
+            "core": "custom",
+            "attribute": "PotOrto",
+            "description": "Score (0–100) que avalia a adequação da imagem para fotogrametria de alta precisão, combinando precisão RTK, angulo_de_incidencia, CalibratedFocalLength e DewarpFlag. [PotOrto]"
         }
     }
     
-    DERIVED_INDIVIDUAL_FIELDS = {
-    "tempo_desde_anterior": {
-        "description": "Tempo decorrido (segundos) desde a foto anterior, calculado como diferença entre DateTimeOriginal da foto atual e da anterior. Indica a cadência de captura."
-    },
-    "distancia_geodesica_anterior": {
-        "description": "Distância horizontal (metros) entre a posição GPS atual e a anterior, utilizando a fórmula de Haversine com as coordenadas (GPSLatitude, GPSLongitude)."
-    },
-    "distancia_3d_anterior": {
-        "description": "Distância tridimensional (metros) entre a posição atual e a anterior, combinando a distância horizontal com a diferença de altitude (AbsoluteAltitude ou GPSAltitude)."
-    },
-    "velocidade_media_entre_fotos": {
-        "description": "Velocidade média (m/s) no intervalo entre a foto anterior e a atual, calculada como distancia_3d_anterior / tempo_desde_anterior."
-    },
-    "velocidade_linear_instantanea": {
-        "description": "Módulo da velocidade vetorial (m/s) fornecida pelos campos FlightXSpeed, FlightYSpeed, FlightZSpeed: sqrt(XSpeed² + YSpeed² + ZSpeed²)."
-    },
-    "direcao_deslocamento": {
-        "description": "Azimute (graus) do deslocamento entre a posição anterior e a atual, medido a partir do norte verdadeiro. Indica a direção de movimento."
-    },
-    "angulo_de_incidencia": {
-        "description": "Ângulo (graus) entre o eixo óptico da câmera e a vertical do terreno, combinando GimbalPitchDegree e FlightPitchDegree. Importante para fotogrametria."
-    },
-    "cobertura_estimada": {
-        "description": "Tupla (largura_m, altura_m) estimada da área projetada no solo, baseada na altitude, campo de visão (derivado do modelo) e ângulo do gimbal."
-    },
-    "sobreposicao_prevista": {
-        "description": "Percentual de sobreposição longitudinal com a imagem anterior, calculado como (1 - (distancia_geodesica_anterior / cobertura_estimada_largura)) * 100, limitado a [0,100]."
-    },
-    "precisao_rtk_efetiva": {
-        "description": "Classificação textual da precisão RTK: 'Alta' (RtkFlag=50 e desvios < 0.02), 'Média' (desvios < 0.1), 'Baixa' (desvios >= 0.1), 'Sem RTK' (RtkFlag=0)."
-    },
-    "e_sobreposicao_ideal": {
-        "description": "Booleano indicando se a sobreposição prevista é maior ou igual a um limiar (ex.: 60%). Útil para controle de qualidade do voo."
-    },
-    "flag_mudanca_brusca": {
-        "description": "Booleano que sinaliza quando o tempo_desde_anterior ou a distancia_geodesica_anterior excede significativamente a mediana do conjunto (ex.: > 2× mediana)."
-    },
-    "velocidade_angular_gimbal": {
-        "description": "Variação de GimbalYawDegree (graus por segundo) entre a imagem atual e a anterior, indicando se o gimbal estava girando durante a captura."
-    },
-    "potencial_de_ortoretificacao": {
-        "description": "Score (0–100) que avalia a adequação da imagem para fotogrametria de alta precisão, combinando precisão RTK, angulo_de_incidencia, CalibratedFocalLength e DewarpFlag."
-    }
-}
+# DERIVED_INDIVIDUAL_FIELDS MOVED TO CUSTOM_FIELDS
+# DERIVED_INDIVIDUAL_FIELDS = { ... }
 
 """
 ### Lista 2 – Informações do conjunto geral de dados
