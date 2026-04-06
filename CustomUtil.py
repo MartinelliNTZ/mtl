@@ -161,18 +161,32 @@ class CustomUtil:
     
     @staticmethod
     def _calculate_individual_fields(data: Dict) -> Dict:
-        """Campos custom individuais derivados."""
+        #\"\"\"Campos custom individuais derivados.\"\"\"
         shutter_count = CustomUtil.safe_int(data.get('ShutterCount', 0))
         shutter_life_pct = (shutter_count / 400000) * 100
         
         lrf_distance_m = CustomUtil.safe_float(data.get('LRFTargetDistance', 0))
-        focal_length_mm = CustomUtil.safe_float(data['FocalLength'])
-        sensor_pitch_um = 3.76  # M3E/M4E standard
-        gsd_cm_px = (lrf_distance_m * 100 * sensor_pitch_um) / focal_length_mm if focal_length_mm > 0 else 0  # cm/px
+        focal_length_mm = CustomUtil.safe_float(data.get('FocalLength', 12.29))
+        sensor_width_mm = 7.49  # M3E/M4E sensor width (20MP 5280px)
+        sensor_height_mm = 5.62  # height 3956px
+        img_w_px = CustomUtil.safe_float(data.get('ExifImageWidth', 5280))
+        img_h_px = CustomUtil.safe_float(data.get('ExifImageHeight', 3956))
         
-        sens_temp = CustomUtil.safe_float(data.get('SensorTemperature', 0))
-        lens_temp = CustomUtil.safe_float(data.get('LensTemperature', 0))
-        total_heat_index = (sens_temp + lens_temp) / 2
+        # GSD cm/pixel horizontal central
+        pixel_pitch_mm = sensor_width_mm / img_w_px
+        gsd_cm_px = (lrf_distance_m * pixel_pitch_mm / focal_length_mm * 100) if lrf_distance_m > 0 and focal_length_mm > 0 else 0
+        
+        # Heat index - só dividir se 2 valores
+        sens_temp = CustomUtil.safe_float(data.get('SensorTemperature'))
+        lens_temp = CustomUtil.safe_float(data.get('LensTemperature'))
+        if sens_temp > 0 and lens_temp > 0:
+            total_heat_index = (sens_temp + lens_temp) / 2
+        elif sens_temp > 0:
+            total_heat_index = sens_temp
+        elif lens_temp > 0:
+            total_heat_index = lens_temp  
+        else:
+            total_heat_index = 0.0
         
         return {
             'shutter_life_pct': shutter_life_pct,
