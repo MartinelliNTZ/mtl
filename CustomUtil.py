@@ -172,7 +172,10 @@ class CustomUtil:
         img_w_px = CustomUtil.safe_float(data.get('ExifImageWidth', 5280))
         img_h_px = CustomUtil.safe_float(data.get('ExifImageHeight', 3956))
         
-        # GSD cm/pixel horizontal central
+        # GSD cm/pixel horizontal central - Fallback AbsoluteAltitude se LRF=0
+        if lrf_distance_m == 0:
+            lrf_distance_m = CustomUtil.safe_float(data.get('AbsoluteAltitude', 0)) * 0.85  # 85% até terreno
+        
         pixel_pitch_mm = sensor_width_mm / img_w_px
         gsd_cm_px = (lrf_distance_m * pixel_pitch_mm / focal_length_mm * 100) if lrf_distance_m > 0 and focal_length_mm > 0 else 0
         
