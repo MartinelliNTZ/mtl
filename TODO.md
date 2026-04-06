@@ -6,7 +6,7 @@
 - [ ] Testar main.py
 - [ ] Completar task
 
-**Status:** Strings.py atualizado. CUSTOM_FIELDS agora tem 17 entradas (2 originais + 15 derivadas). Pronto para shapefile!
+**Status:** ✅ COMPLETO! CUSTOM_FIELDS agora tem 17 entradas **todas em inglês** com attributes <=9 chars para shapefile. Descriptions PT + tooltip [ABREV].
 
 ## Detalhes Pendentes
 - Transferir 15 campos derivados

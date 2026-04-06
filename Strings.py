@@ -416,89 +416,89 @@ class Strings:
             "attribute": "3DSpeed",
             "description": "Velocidade total de deslocamento da aeronave calculada a partir das velocidades de voo X, Y e Z (FlightXSpeed, FlightYSpeed, FlightZSpeed) [3DSpeed]"
         },
-        "tempo_desde_anterior": {
-            "normalized": "Custom:tempo_desde_anterior",
+        "time_since_previous": {
+            "normalized": "Custom:time_since_previous",
             "core": "custom",
-            "attribute": "TmpAnt",
-            "description": "Tempo decorrido (segundos) desde a foto anterior, calculado como diferença entre DateTimeOriginal da foto atual e da anterior. Indica a cadência de captura. [TmpAnt]"
+            "attribute": "TimePrv",
+            "description": "Tempo decorrido (segundos) desde a foto anterior, calculado como diferença entre DateTimeOriginal da foto atual e da anterior. Indica a cadência de captura. [TimePrv]"
         },
-        "distancia_geodesica_anterior": {
-            "normalized": "Custom:distancia_geodesica_anterior",
+        "geodesic_distance_previous": {
+            "normalized": "Custom:geodesic_distance_previous",
             "core": "custom",
-            "attribute": "DstGeo",
-            "description": "Distância horizontal (metros) entre a posição GPS atual e a anterior, utilizando a fórmula de Haversine com as coordenadas (GPSLatitude, GPSLongitude). [DstGeo]"
+            "attribute": "GeoDstP",
+            "description": "Distância horizontal (metros) entre a posição GPS atual e a anterior, utilizando a fórmula de Haversine com as coordenadas (GPSLatitude, GPSLongitude). [GeoDstP]"
         },
-        "distancia_3d_anterior": {
-            "normalized": "Custom:distancia_3d_anterior",
+        "distance_3d_previous": {
+            "normalized": "Custom:distance_3d_previous",
             "core": "custom",
-            "attribute": "Dst3D",
-            "description": "Distância tridimensional (metros) entre a posição atual e a anterior, combinando a distância horizontal com a diferença de altitude (AbsoluteAltitude ou GPSAltitude). [Dst3D]"
+            "attribute": "Dist3DP",
+            "description": "Distância tridimensional (metros) entre a posição atual e a anterior, combinando a distância horizontal com a diferença de altitude (AbsoluteAltitude ou GPSAltitude). [Dist3DP]"
         },
-        "velocidade_media_entre_fotos": {
-            "normalized": "Custom:velocidade_media_entre_fotos",
+        "avg_velocity_between_photos": {
+            "normalized": "Custom:avg_velocity_between_photos",
             "core": "custom",
-            "attribute": "VlmMdia",
-            "description": "Velocidade média (m/s) no intervalo entre a foto anterior e a atual, calculada como distancia_3d_anterior / tempo_desde_anterior. [VlmMdia]"
+            "attribute": "AvgVelB",
+            "description": "Velocidade média (m/s) no intervalo entre a foto anterior e a atual, calculada como distancia_3d_anterior / tempo_desde_anterior. [AvgVelB]"
         },
-        "velocidade_linear_instantanea": {
-            "normalized": "Custom:velocidade_linear_instantanea",
+        "linear_velocity_instant": {
+            "normalized": "Custom:linear_velocity_instant",
             "core": "custom",
-            "attribute": "VlinIns",
-            "description": "Módulo da velocidade vetorial (m/s) fornecida pelos campos FlightXSpeed, FlightYSpeed, FlightZSpeed: sqrt(XSpeed² + YSpeed² + ZSpeed²). [VlinIns]"
+            "attribute": "LinVelI",
+            "description": "Módulo da velocidade vetorial (m/s) fornecida pelos campos FlightXSpeed, FlightYSpeed, FlightZSpeed: sqrt(XSpeed² + YSpeed² + ZSpeed²). [LinVelI]"
         },
-        "direcao_deslocamento": {
-            "normalized": "Custom:direcao_deslocamento",
+        "displacement_direction": {
+            "normalized": "Custom:displacement_direction",
             "core": "custom",
-            "attribute": "DirDesl",
-            "description": "Azimute (graus) do deslocamento entre a posição anterior e a atual, medido a partir do norte verdadeiro. Indica a direção de movimento. [DirDesl]"
+            "attribute": "DirDispl",
+            "description": "Azimute (graus) do deslocamento entre a posição anterior e a atual, medido a partir do norte verdadeiro. Indica a direção de movimento. [DirDispl]"
         },
-        "angulo_de_incidencia": {
-            "normalized": "Custom:angulo_de_incidencia",
+        "incidence_angle": {
+            "normalized": "Custom:incidence_angle",
             "core": "custom",
-            "attribute": "AngIncid",
-            "description": "Ângulo (graus) entre o eixo óptico da câmera e a vertical do terreno, combinando GimbalPitchDegree e FlightPitchDegree. Importante para fotogrametria. [AngIncid]"
+            "attribute": "IncAngle",
+            "description": "Ângulo (graus) entre o eixo óptico da câmera e a vertical do terreno, combinando GimbalPitchDegree e FlightPitchDegree. Importante para fotogrametria. [IncAngle]"
         },
-        "cobertura_estimada": {
-            "normalized": "Custom:cobertura_estimada",
+        "estimated_coverage": {
+            "normalized": "Custom:estimated_coverage",
             "core": "custom",
-            "attribute": "CobEst",
-            "description": "Tupla (largura_m, altura_m) estimada da área projetada no solo, baseada na altitude, campo de visão (derivado do modelo) e ângulo do gimbal. [CobEst]"
+            "attribute": "EstCover",
+            "description": "Tupla (largura_m, altura_m) estimada da área projetada no solo, baseada na altitude, campo de visão (derivado do modelo) e ângulo do gimbal. [EstCover]"
         },
-        "sobreposicao_prevista": {
-            "normalized": "Custom:sobreposicao_prevista",
+        "predicted_overlap": {
+            "normalized": "Custom:predicted_overlap",
             "core": "custom",
-            "attribute": "SobPrev",
-            "description": "Percentual de sobreposição longitudinal com a imagem anterior, calculado como (1 - (distancia_geodesica_anterior / cobertura_estimada_largura)) * 100, limitado a [0,100]. [SobPrev]"
+            "attribute": "PredOver",
+            "description": "Percentual de sobreposição longitudinal com a imagem anterior, calculado como (1 - (distancia_geodesica_anterior / cobertura_estimada_largura)) * 100, limitado a [0,100]. [PredOver]"
         },
-        "precisao_rtk_efetiva": {
-            "normalized": "Custom:precisao_rtk_efetiva",
+        "rtk_effective_precision": {
+            "normalized": "Custom:rtk_effective_precision",
             "core": "custom",
-            "attribute": "PrcRTK",
-            "description": "Classificação textual da precisão RTK: 'Alta' (RtkFlag=50 e desvios < 0.02), 'Média' (desvios < 0.1), 'Baixa' (desvios >= 0.1), 'Sem RTK' (RtkFlag=0). [PrcRTK]"
+            "attribute": "RTKPrec",
+            "description": "Classificação textual da precisão RTK: 'Alta' (RtkFlag=50 e desvios < 0.02), 'Média' (desvios < 0.1), 'Baixa' (desvios >= 0.1), 'Sem RTK' (RtkFlag=0). [RTKPrec]"
         },
-        "e_sobreposicao_ideal": {
-            "normalized": "Custom:e_sobreposicao_ideal",
+        "is_ideal_overlap": {
+            "normalized": "Custom:is_ideal_overlap",
             "core": "custom",
-            "attribute": "SobIdeal",
-            "description": "Booleano indicando se a sobreposição prevista é maior ou igual a um limiar (ex.: 60%). Útil para controle de qualidade do voo. [SobIdeal]"
+            "attribute": "IdealOvl",
+            "description": "Booleano indicando se a sobreposição prevista é maior ou igual a um limiar (ex.: 60%). Útil para controle de qualidade do voo. [IdealOvl]"
         },
-        "flag_mudanca_brusca": {
-            "normalized": "Custom:flag_mudanca_brusca",
+        "abrupt_change_flag": {
+            "normalized": "Custom:abrupt_change_flag",
             "core": "custom",
-            "attribute": "FlgMud",
-            "description": "Booleano que sinaliza quando o tempo_desde_anterior ou a distancia_geodesica_anterior excede significativamente a mediana do conjunto (ex.: > 2× mediana). [FlgMud]"
+            "attribute": "AbrChgF",
+            "description": "Booleano que sinaliza quando o tempo_desde_anterior ou a distancia_geodesica_anterior excede significativamente a mediana do conjunto (ex.: > 2× mediana). [AbrChgF]"
         },
-        "velocidade_angular_gimbal": {
-            "normalized": "Custom:velocidade_angular_gimbal",
+        "gimbal_angular_velocity": {
+            "normalized": "Custom:gimbal_angular_velocity",
             "core": "custom",
-            "attribute": "VangGim",
-            "description": "Variação de GimbalYawDegree (graus por segundo) entre a imagem atual e a anterior, indicando se o gimbal estava girando durante a captura. [VangGim]"
+            "attribute": "GimAngV",
+            "description": "Variação de GimbalYawDegree (graus por segundo) entre a imagem atual e a anterior, indicando se o gimbal estava girando durante a captura. [GimAngV]"
         },
-        "potencial_de_ortoretificacao": {
-            "normalized": "Custom:potencial_de_ortoretificacao",
+        "orthorectification_potential": {
+            "normalized": "Custom:orthorectification_potential",
             "core": "custom",
-            "attribute": "PotOrto",
-            "description": "Score (0–100) que avalia a adequação da imagem para fotogrametria de alta precisão, combinando precisão RTK, angulo_de_incidencia, CalibratedFocalLength e DewarpFlag. [PotOrto]"
+            "attribute": "OrtoPot",
+            "description": "Score (0–100) que avalia a adequação da imagem para fotogrametria de alta precisão, combinando precisão RTK, angulo_de_incidencia, CalibratedFocalLength e DewarpFlag. [OrtoPot]"
         }
     }
     
