@@ -144,13 +144,24 @@ class Manager:
                 from CustomUtil import CustomUtil
                 # Single image: no sequence
                 metadata['voo_id'] = CustomUtil.get_voo_id(metadata)
-                metadata.update(CustomUtil._calculate_gimbal_3d(metadata))
-                metadata.update(CustomUtil._calculate_quality_scores(metadata, None, False))
+                individual = CustomUtil._calculate_individual_fields(metadata)
+                gimbal = CustomUtil._calculate_gimbal_3d(
+                    metadata,
+                    None,
+                )
+                quality = CustomUtil._calculate_quality_scores(
+                    metadata,
+                    None,
+                    False,
+                    None,
+                    individual.get("coverage_width", 0.0),
+                    gimbal.get("yaw_alignment_error", 0.0),
+                    individual.get("motion_blur_risk", 0.0),
+                )
+                metadata.update(individual)
+                metadata.update(gimbal)
+                metadata.update(quality)
             return metadata
-
-        raise ValueError(f"Caminho inválido ou não é imagem: {item_path}")
-
-
 
 if __name__ == "__main__":
     print("Manager disponível para uso via importação, execute pelo main.py")

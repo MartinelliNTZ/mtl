@@ -11,6 +11,7 @@ Dependências:
 """
 
 import math
+import statistics
 from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 from Strings import Strings
@@ -33,6 +34,10 @@ class CustomUtil:
         "rtk_fresh": 15,
         "overlap_good": 10,
     }
+    
+    BLUR_THRESHOLD = 0.5  # motion blur in pixels
+    COVERAGE_FACTOR = 1.45  # approx for 84° HFOV
+    STRIP_CHANGE_THRESHOLD = 150  # degrees
 
     @staticmethod
     def safe_float(val: any, default: float = 0.0) -> float:
@@ -129,6 +134,33 @@ class CustomUtil:
         return (bearing + 360) % 360
 
     @staticmethod
+    def angle_difference(a: float, b: float) -> float:
+        """Menor diferença angular entre dois azimutes (0-180)."""
+        diff = abs((a - b) % 360)
+        return diff if diff <= 180 else 360 - diff
+
+    @staticmethod
+    def calculate_estimated_coverage(data: Dict) -> Tuple[float, float]:
+        """Estimativa de cobertura no solo (largura, altura) em metros."""
+        effective_distance = CustomUtil.safe_float(data.get("LRFTargetDistance", 0))
+        if effective_distance <= 0:
+            effective_distance = CustomUtil.safe_float(data.get("AbsoluteAltitude", 0))
+
+        focal_length_mm = CustomUtil.safe_float(data.get("FocalLength", 12.29))
+        sensor_width_mm = 7.49
+        img_w_px = CustomUtil.safe_float(data.get("ExifImageWidth", 5280))
+        img_h_px = CustomUtil.safe_float(data.get("ExifImageHeight", 3956))
+        aspect_ratio = img_h_px / img_w_px if img_w_px > 0 else 0.75
+
+        width_m = (
+            effective_distance * sensor_width_mm / focal_length_mm
+            if effective_distance > 0 and focal_length_mm > 0
+            else 0.0
+        )
+        height_m = width_m * aspect_ratio
+        return (round(width_m, DECIMAL_PLACES), round(height_m, DECIMAL_PLACES))
+
+    @staticmethod
     def _calculate_sequence_fields(
         data: Dict, other_data: Optional[Dict], valid_seq: bool, direction: str
     ) -> Dict:
@@ -181,46 +213,51 @@ class CustomUtil:
 
     @staticmethod
     def _calculate_individual_fields(data: Dict) -> Dict:
-        # \"\"\"Campos custom individuais derivados.\"\"\"
+        # Campos custom individuais derivados (speed_3d calculated here)
         shutter_count = CustomUtil.safe_int(data.get("ShutterCount", 0))
         shutter_life_pct = (shutter_count / 400000) * 100
 
         lrf_distance_m = CustomUtil.safe_float(data.get("LRFTargetDistance", 0))
         focal_length_mm = CustomUtil.safe_float(data.get("FocalLength", 12.29))
-        sensor_width_mm = 7.49  # M3E/M4E sensor width (20MP 5280px)
-        sensor_height_mm = 5.62  # height 3956px
+        sensor_width_mm = 7.49  # M3E/M4E sensor width
         img_w_px = CustomUtil.safe_float(data.get("ExifImageWidth", 5280))
-        img_h_px = CustomUtil.safe_float(data.get("ExifImageHeight", 3956))
 
-        # GSD cm/pixel horizontal central - Fallback AbsoluteAltitude se LRF=0
         if lrf_distance_m == 0:
-            lrf_distance_m = (
-                CustomUtil.safe_float(data.get("AbsoluteAltitude", 0)) * 0.85
-            )  # 85% até terreno
+            lrf_distance_m = CustomUtil.safe_float(data.get("AbsoluteAltitude", 0)) * 0.85
 
         pixel_pitch_mm = sensor_width_mm / img_w_px
-        gsd_cm_px = (
-            (lrf_distance_m * pixel_pitch_mm / focal_length_mm * 100)
-            if lrf_distance_m > 0 and focal_length_mm > 0
-            else 0
-        )
+        gsd_cm_px = (lrf_distance_m * pixel_pitch_mm / focal_length_mm * 100) if lrf_distance_m > 0 and focal_length_mm > 0 else 0
+        gsd_m_px = gsd_cm_px / 100
 
-        # Heat index - só dividir se 2 valores
+        # Heat index
         sens_temp = CustomUtil.safe_float(data.get("SensorTemperature"))
         lens_temp = CustomUtil.safe_float(data.get("LensTemperature"))
-        if sens_temp > 0 and lens_temp > 0:
-            total_heat_index = (sens_temp + lens_temp) / 2
-        elif sens_temp > 0:
-            total_heat_index = sens_temp
-        elif lens_temp > 0:
-            total_heat_index = lens_temp
-        else:
-            total_heat_index = 0.0
+        total_heat_index = (sens_temp + lens_temp) / 2 if sens_temp > 0 and lens_temp > 0 else (sens_temp or lens_temp or 0.0)
+
+        # Speed 3D for blur risk
+        xspd = CustomUtil.safe_float(data["FlightXSpeed"])
+        yspd = CustomUtil.safe_float(data["FlightYSpeed"])
+        zspd = CustomUtil.safe_float(data["FlightZSpeed"])
+        speed_3d = math.sqrt(xspd**2 + yspd**2 + zspd**2)
+
+        # New fields
+        exp_time = CustomUtil.safe_float(data.get("ExposureTime", 0))
+        fnumber = CustomUtil.safe_float(data.get("FNumber", 2.8))
+        
+        motion_blur_risk = (speed_3d * exp_time / gsd_m_px) if gsd_m_px > 0 else 0.0
+        exposure_value_ev = math.log2(fnumber**2 / exp_time) if exp_time > 0 else 0.0
+
+        coverage_width = CustomUtil.safe_float(data.get("AbsoluteAltitude", 0)) * CustomUtil.COVERAGE_FACTOR
 
         return {
             "shutter_life_pct": round(shutter_life_pct, DECIMAL_PLACES),
             "ground_sample_distance_cm": round(gsd_cm_px, DECIMAL_PLACES),
             "total_heat_index": round(total_heat_index, DECIMAL_PLACES),
+            "motion_blur_risk": round(motion_blur_risk, DECIMAL_PLACES),
+            "exposure_value_ev": round(exposure_value_ev, DECIMAL_PLACES),
+            "coverage_width": round(coverage_width, DECIMAL_PLACES),
+            "speed_3d": round(speed_3d, DECIMAL_PLACES),  # expose for other uses
+            "linear_velocity_instant": round(speed_3d, DECIMAL_PLACES),
         }
 
     @staticmethod
@@ -228,29 +265,45 @@ class CustomUtil:
         """GimbalOffset, 3DSpeed + yaw_alignment_error."""
         gim_yaw = CustomUtil.safe_float(data["GimbalYawDegree"])
         flight_yaw = CustomUtil.safe_float(data["FlightYawDegree"])
-        gimbal_offset = gim_yaw - flight_yaw - 180
+        gimbal_offset = (gim_yaw - flight_yaw - 180) % 360  # normalize 0-360
 
         xspd = CustomUtil.safe_float(data["FlightXSpeed"])
         yspd = CustomUtil.safe_float(data["FlightYSpeed"])
         zspd = CustomUtil.safe_float(data["FlightZSpeed"])
         speed_3d = math.sqrt(xspd**2 + yspd**2 + zspd**2)
 
-        # Novo: yaw_alignment_error
-        displacement_dir = data.get('prev_displacement_direction', 0)
-        yaw_alignment_error = abs(flight_yaw - displacement_dir)
+        displacement_dir = prev_dir if prev_dir is not None else flight_yaw
+        yaw_alignment_error = min(abs(flight_yaw - displacement_dir), 360 - abs(flight_yaw - displacement_dir))
+
+        wind_effect_estimation = yaw_alignment_error  # reuse as wind proxy
 
         return {
             "gimbal_offset": round(gimbal_offset, DECIMAL_PLACES),
             "speed_3d": round(speed_3d, DECIMAL_PLACES),
             "speed_3d_kmh": round(speed_3d * 3.6, 1),
             "yaw_alignment_error": round(yaw_alignment_error, DECIMAL_PLACES),
+            "wind_effect_estimation": round(wind_effect_estimation, DECIMAL_PLACES),
         }
 
     @staticmethod
     def _calculate_quality_scores(
-        data: Dict, prev_data: Optional[Dict], valid_prev: bool
+        data: Dict,
+        prev_data: Optional[Dict],
+        valid_prev: bool,
+        prev_seq: Optional[Dict] = None,
+        coverage_width: float = 0.0,
+        yaw_alignment_error: float = 0.0,
+        motion_blur_risk: float = 0.0,
     ) -> Dict:
-        """RTK precision, overlap, ortho score."""
+        """RTK precision, overlap, ortho score, estabilidade e índices."""
+        if prev_seq is None:
+            prev_seq = {
+                "prev_time_since": 0.0,
+                "prev_geodesic_distance": 0.0,
+                "prev_distance_3d": 0.0,
+                "prev_avg_velocity": 0.0,
+                "prev_displacement_direction": 0.0,
+            }
         # RTK Precision
         rtk_flag = data.get("RtkFlag")
         rtk_stds = [
@@ -269,13 +322,35 @@ class CustomUtil:
         else:
             rtk_prec = "Sem RTK"
 
+        prev_avg_std = 0.0
+        rtk_stability_score = 0.0
+        if valid_prev and prev_data is not None:
+            prev_rtk_stds = [
+                CustomUtil.safe_float(prev_data.get("RtkStdLon", 999)),
+                CustomUtil.safe_float(prev_data.get("RtkStdLat", 999)),
+                CustomUtil.safe_float(prev_data.get("RtkStdHgt", 999)),
+            ]
+            prev_avg_std = sum(prev_rtk_stds) / 3
+            rtk_stability_score = max(
+                0.0,
+                100.0 - min(100.0, abs(avg_std - prev_avg_std) * 100.0),
+            )
+
         # Incidence angle
         gim_pitch = CustomUtil.safe_float(data["GimbalPitchDegree"])
         flight_pitch = CustomUtil.safe_float(data["FlightPitchDegree"])
         inc_angle = abs(gim_pitch + flight_pitch)
 
-        # Predicted overlap (simplificado sem prev para foto única)
-        pred_overlap = 0.0  # será calculado na sequência
+        # Predicted overlap
+        pred_overlap = 0.0
+        if valid_prev and coverage_width > 0:
+            pred_overlap = max(
+                0.0,
+                min(
+                    100.0,
+                    (1.0 - prev_seq.get("prev_geodesic_distance", 0.0) / coverage_width) * 100.0,
+                ),
+            )
 
         # Ortho score
         score = 0
@@ -292,20 +367,70 @@ class CustomUtil:
         ortho_potential = min(100, score)
 
         # Flags
-        abrupt_flag = False  # precisa sequência
-        ideal_overlap = pred_overlap >= 60
+        abrupt_flag = False  # atualiza depois com mediana do conjunto
+        ideal_overlap = pred_overlap >= CustomUtil.IDEAL_OVERLAP
 
-        # Angular velocity gimbal (precisa sequência)
+        # Angular velocity gimbal
         gim_ang_vel = 0.0
+        if valid_prev and prev_data is not None and prev_seq["prev_time_since"] > 0:
+            prev_gim_yaw = CustomUtil.safe_float(prev_data.get("GimbalYawDegree", 0))
+            curr_gim_yaw = CustomUtil.safe_float(data.get("GimbalYawDegree", 0))
+            yaw_diff = CustomUtil.angle_difference(curr_gim_yaw, prev_gim_yaw)
+            gim_ang_vel = yaw_diff / prev_seq["prev_time_since"]
+
+        # Vertical stability
+        vertical_stability = 0.0
+        if valid_prev and prev_data is not None:
+            alt_curr = CustomUtil.safe_float(data.get("AbsoluteAltitude", 0))
+            alt_prev = CustomUtil.safe_float(prev_data.get("AbsoluteAltitude", 0))
+            vertical_stability = abs(alt_curr - alt_prev)
+
+        # Speed variation
+        speed_variation_index = 0.0
+        if valid_prev and prev_data is not None:
+            prev_speed = math.sqrt(
+                CustomUtil.safe_float(prev_data.get("FlightXSpeed", 0)) ** 2
+                + CustomUtil.safe_float(prev_data.get("FlightYSpeed", 0)) ** 2
+                + CustomUtil.safe_float(prev_data.get("FlightZSpeed", 0)) ** 2
+            )
+            current_speed = math.sqrt(
+                CustomUtil.safe_float(data.get("FlightXSpeed", 0)) ** 2
+                + CustomUtil.safe_float(data.get("FlightYSpeed", 0)) ** 2
+                + CustomUtil.safe_float(data.get("FlightZSpeed", 0)) ** 2
+            )
+            mean_speed = statistics.mean([prev_speed, current_speed])
+            if mean_speed > 0:
+                speed_variation_index = statistics.pstdev([prev_speed, current_speed]) / mean_speed
+
+        capture_efficiency = (
+            prev_seq.get("prev_geodesic_distance", 0.0) / coverage_width
+            if valid_prev and coverage_width > 0
+            else 0.0
+        )
+
+        photogrammetry_quality_index = min(
+            100,
+            ortho_potential
+            + (10 if motion_blur_risk < CustomUtil.BLUR_THRESHOLD else 0)
+            + (10 if yaw_alignment_error < 5 else 0)
+            + (10 if pred_overlap >= CustomUtil.IDEAL_OVERLAP else 0),
+        )
 
         return {
             "rtk_effective_precision": rtk_prec,
             "incidence_angle": inc_angle,
-            "predicted_overlap": pred_overlap,
+            "predicted_overlap": round(pred_overlap, DECIMAL_PLACES),
             "is_ideal_overlap": ideal_overlap,
             "abrupt_change_flag": abrupt_flag,
-            "gimbal_angular_velocity": gim_ang_vel,
-            "orthorectification_potential": ortho_potential,
+            "gimbal_angular_velocity": round(gim_ang_vel, DECIMAL_PLACES),
+            "orthorectification_potential": round(ortho_potential, DECIMAL_PLACES),
+            "vertical_stability": round(vertical_stability, DECIMAL_PLACES),
+            "speed_variation_index": round(speed_variation_index, DECIMAL_PLACES),
+            "rtk_stability_score": round(rtk_stability_score, DECIMAL_PLACES),
+            "capture_efficiency": round(capture_efficiency, DECIMAL_PLACES),
+            "photogrammetry_quality_index": round(
+                photogrammetry_quality_index, DECIMAL_PLACES
+            ),
         }
 
     @classmethod
@@ -320,11 +445,18 @@ class CustomUtil:
         )
 
         result = {}
+        prev_segment_dir = None
+        strip_id = 1
+        prev_time_values: List[float] = []
+        prev_geo_values: List[float] = []
+
         for i, (filename, data) in enumerate(sorted_items):
             prev_item = sorted_items[i - 1] if i > 0 else None
+            prev_prev_item = sorted_items[i - 2] if i > 1 else None
             next_item = sorted_items[i + 1] if i < len(sorted_items) - 1 else None
 
             prev_data = prev_item[1] if prev_item else None
+            prev_prev_data = prev_prev_item[1] if prev_prev_item else None
             next_data = next_item[1] if next_item else None
 
             # Validações sequência
@@ -339,14 +471,39 @@ class CustomUtil:
                 data, next_data, valid_next, "next"
             )
 
+            estimated_coverage = cls.calculate_estimated_coverage(data)
+            coverage_width, coverage_height = estimated_coverage
+
             # Campos individuais NOVOS
             individual = cls._calculate_individual_fields(data)
 
             # Outros
-            gim_3d = cls._calculate_gimbal_3d(data)
-            quality = cls._calculate_quality_scores(data, prev_data, valid_prev)
+            gim_3d = cls._calculate_gimbal_3d(
+                data,
+                prev_seq["prev_displacement_direction"] if valid_prev else None,
+            )
+            quality = cls._calculate_quality_scores(
+                data,
+                prev_data,
+                valid_prev,
+                prev_seq,
+                coverage_width,
+                gim_3d["yaw_alignment_error"],
+                individual["motion_blur_risk"],
+            )
 
-            # Flags validação
+            current_segment_dir = prev_seq["prev_displacement_direction"] if valid_prev else None
+            trajectory_smoothness = 0.0
+            if current_segment_dir is not None and prev_segment_dir is not None:
+                trajectory_smoothness = cls.angle_difference(
+                    current_segment_dir, prev_segment_dir
+                )
+                if trajectory_smoothness > cls.STRIP_CHANGE_THRESHOLD:
+                    strip_id += 1
+
+            if current_segment_dir is not None:
+                prev_segment_dir = current_segment_dir
+
             validation = {
                 "is_valid_sequence_prev": valid_prev,
                 "is_valid_sequence_next": valid_next,
@@ -360,9 +517,37 @@ class CustomUtil:
                 **prev_seq,
                 **next_seq,
                 **validation,
+                "GimbalOffset": round(gim_3d["gimbal_offset"], DECIMAL_PLACES),
+                "3DSpeed": round(gim_3d["speed_3d"], DECIMAL_PLACES),
+                "time_since_previous": round(prev_seq["prev_time_since"], DECIMAL_PLACES),
+                "geodesic_distance_previous": round(prev_seq["prev_geodesic_distance"], DECIMAL_PLACES),
+                "distance_3d_previous": round(prev_seq["prev_distance_3d"], DECIMAL_PLACES),
+                "avg_velocity_between_photos": round(prev_seq["prev_avg_velocity"], DECIMAL_PLACES),
+                "linear_velocity_instant": round(gim_3d["speed_3d"], DECIMAL_PLACES),
+                "displacement_direction": round(prev_seq["prev_displacement_direction"], DECIMAL_PLACES),
+                "estimated_coverage": estimated_coverage,
+                "coverage_width": round(coverage_width, DECIMAL_PLACES),
+                "trajectory_smoothness": round(trajectory_smoothness, DECIMAL_PLACES),
+                "strip_id": strip_id,
             }
 
+            if valid_prev:
+                prev_time_values.append(custom["time_since_previous"])
+                prev_geo_values.append(custom["geodesic_distance_previous"])
+
             result[filename] = {**data, **custom}
+
+        median_time = statistics.median(prev_time_values) if prev_time_values else 0.0
+        median_geo = statistics.median(prev_geo_values) if prev_geo_values else 0.0
+        for filename, item in result.items():
+            if (
+                median_time > 0
+                and item.get("time_since_previous", 0.0) > median_time * 2
+            ) or (
+                median_geo > 0
+                and item.get("geodesic_distance_previous", 0.0) > median_geo * 2
+            ):
+                item["abrupt_change_flag"] = True
 
         return result
 

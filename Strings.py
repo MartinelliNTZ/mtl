@@ -594,6 +594,96 @@ class Strings:
         }
     }
     
+    LIGHT_SOURCE_VALUES = {
+        0: {
+            "value": "Unknown",
+            "description": "Fonte de luz desconhecida ou não especificada. Este valor é frequentemente usado quando o dado não foi registrado ou é inválido."
+        },
+        1: {
+            "value": "Daylight",
+            "description": "Luz do dia, referente à iluminação solar natural. Corresponde ao balanço de branco para condições diurnas, com temperatura de cor por volta de 5200K-6500K."
+        },
+        2: {
+            "value": "Fluorescent",
+            "description": "Iluminação fluorescente, típica de lâmpadas de luz do dia. Apresenta uma temperatura de cor variando geralmente entre 3000K e 6500K, dependendo do tipo da lâmpada."
+        },
+        3: {
+            "value": "Tungsten",
+            "description": "Iluminação de tungstênio (lâmpada incandescente), com tom amarelado característico. A temperatura de cor normalmente fica na faixa dos 2800K a 3200K."
+        },
+        4: {
+            "value": "Flash",
+            "description": "Iluminação fornecida pelo flash da câmera. Este valor é registrado quando o flash é disparado e atua como fonte de luz principal ou de preenchimento."
+        },
+        9: {
+            "value": "Fine Weather",
+            "description": "Tempo claro, condição de luz do dia sem nuvens. Representa uma iluminação de alta intensidade e com temperatura de cor bem definida."
+        },
+        10: {
+            "value": "Cloudy Weather",
+            "description": "Tempo nublado, onde a luz do sol é difusa devido à cobertura de nuvens. Geralmente resulta em uma temperatura de cor mais alta, por volta de 6500K-7500K."
+        },
+        11: {
+            "value": "Shade",
+            "description": "Área de sombra, onde a iluminação solar é bloqueada por obstáculos. A luz refletida do céu tende a ser mais azulada, com temperatura de cor superior a 7000K."
+        },
+        12: {
+            "value": "Daylight Fluorescent",
+            "description": "Luz fluorescente do tipo Daylight, que emula a cor da luz do dia. Apresenta uma temperatura de cor típica entre 5700K e 7100K, indicada para ambientes internos."
+        },
+        13: {
+            "value": "Day White Fluorescent",
+            "description": "Luz fluorescente branca diurna, com uma tonalidade neutra. A temperatura de cor dessa fonte varia de 4600K a 5400K."
+        },
+        14: {
+            "value": "Cool White Fluorescent",
+            "description": "Luz fluorescente branca fria, com uma aparência mais azulada. Este tipo de iluminação opera com uma temperatura de cor na faixa de 3800K a 4500K."
+        },
+        15: {
+            "value": "White Fluorescent",
+            "description": "Luz fluorescente branca, oferecendo um equilíbrio entre tons quentes e frios. Sua temperatura de cor geralmente está entre 3250K e 3800K."
+        },
+        16: {
+            "value": "Warm White Fluorescent",
+            "description": "Luz fluorescente branca quente, com tonalidade mais amarelada. É comum em lâmpadas do tipo WW, operando com temperatura de cor de 2600K a 3250K."
+        },
+        17: {
+            "value": "Standard Light A",
+            "description": "Luz padrão do tipo A, que representa uma fonte de luz incandescente. É utilizada como referência para simular iluminação residencial comum."
+        },
+        18: {
+            "value": "Standard Light B",
+            "description": "Luz padrão do tipo B, usada para representar a luz solar direta. Faz parte das referências padronizadas para avaliação de reprodução de cores."
+        },
+        19: {
+            "value": "Standard Light C",
+            "description": "Luz padrão do tipo C, que simula a luz do dia média. É outra referência importante em estudos de temperatura de cor e fidelidade tonal."
+        },
+        20: {
+            "value": "D55",
+            "description": "Iluminante D55, com temperatura de cor de 5500 Kelvin. É utilizado como padrão na indústria gráfica e fotográfica para condições de luz do dia."
+        },
+        21: {
+            "value": "D65",
+            "description": "Iluminante D65, com temperatura de cor de 6500 Kelvin. Representa a luz do dia média na Europa e é o padrão mais comum para monitores e softwares de edição."
+        },
+        22: {
+            "value": "D75",
+            "description": "Iluminante D75, com temperatura de cor de 7500 Kelvin. Simula uma luz do dia com maior componente azul, típica de céus muito claros."
+        },
+        23: {
+            "value": "D50",
+            "description": "Iluminante D50, com temperatura de cor de 5000 Kelvin. É um padrão amplamente utilizado nas artes gráficas e na indústria de impressão."
+        },
+        24: {
+            "value": "ISO Studio Tungsten",
+            "description": "Iluminação de tungstênio para estúdio, conforme padrão ISO. Utilizada em ambientes profissionais para obter uma luz contínua e de alta intensidade."
+        },
+        255: {
+            "value": "Other Light Source",
+            "description": "Outra fonte de luz não listada nas categorias padrão do EXIF. Este valor é utilizado para indicar uma condição de iluminação fora do comum."
+        }
+    }
 # DERIVED_INDIVIDUAL_FIELDS MOVED TO CUSTOM_FIELDS
 # DERIVED_INDIVIDUAL_FIELDS = { ... }
 
