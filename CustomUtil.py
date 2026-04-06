@@ -284,6 +284,62 @@ class CustomUtil:
         }
 
     @staticmethod
+    def _get_light_source_label(light_source: any) -> str:
+        """Retorna o texto da fonte de luz a partir do código LightSource EXIF."""
+        code = CustomUtil.safe_int(light_source, default=0)
+        return Strings.LIGHT_SOURCE_VALUES.get(code, {}).get("value", "Unknown")
+
+    @staticmethod
+    def _check_light_consistency(light_source: any, cct: any) -> str:
+        """Verifica se o valor de CCT está coerente com a fonte de luz declarada."""
+        code = CustomUtil.safe_int(light_source, default=0)
+        cct_value = CustomUtil.safe_float(cct, default=0.0)
+        if cct_value <= 0:
+            return "Unknown"
+
+        expected_ranges = {
+            1: (5200, 6500),
+            2: (3000, 6500),
+            3: (2800, 3200),
+            4: (4500, 6500),
+            9: (6000, 7500),
+            10: (6500, 7500),
+            11: (7000, 10000),
+            12: (5700, 7100),
+            13: (4600, 5400),
+            14: (3800, 4500),
+            15: (3250, 3800),
+            16: (2600, 3250),
+            17: (2800, 3300),
+            18: (5000, 6500),
+            19: (5000, 6500),
+            20: (5400, 5600),
+            21: (6400, 6600),
+            22: (7400, 7600),
+            23: (4900, 5100),
+            24: (3000, 3300),
+        }
+
+        expected = expected_ranges.get(code)
+        if expected is None:
+            label = CustomUtil._get_light_source_label(code)
+            if "daylight" in label.lower():
+                expected = (5200, 7500)
+            elif "fluorescent" in label.lower():
+                expected = (2600, 7100)
+            elif "shade" in label.lower():
+                expected = (7000, 10000)
+            elif "tungsten" in label.lower():
+                expected = (2600, 3300)
+            elif "flash" in label.lower():
+                expected = (4500, 6500)
+            else:
+                return "Unknown"
+
+        low, high = expected
+        return "Consistent" if low <= cct_value <= high else "Inconsistent"
+
+    @staticmethod
     def _calculate_quality_scores(
         data: Dict,
         prev_data: Optional[Dict],
@@ -337,7 +393,7 @@ class CustomUtil:
         # Incidence angle
         gim_pitch = CustomUtil.safe_float(data["GimbalPitchDegree"])
         flight_pitch = CustomUtil.safe_float(data["FlightPitchDegree"])
-        inc_angle = abs(gim_pitch + flight_pitch)
+        inc_angle = round(abs(gim_pitch + flight_pitch), DECIMAL_PLACES)
 
         # Predicted overlap
         pred_overlap = 0.0
@@ -526,6 +582,10 @@ class CustomUtil:
                 "coverage_width": round(coverage_width, DECIMAL_PLACES),
                 "trajectory_smoothness": round(trajectory_smoothness, DECIMAL_PLACES),
                 "strip_id": strip_id,
+                "light_source_classification": cls._get_light_source_label(data.get("LightSource")),
+                "light_consistency": cls._check_light_consistency(
+                    data.get("LightSource"), data.get("WhiteBalanceCCT")
+                ),
             }
 
             if valid_prev:

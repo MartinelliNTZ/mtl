@@ -112,7 +112,9 @@
       76.81
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (4).JPG": {
     "file": "M4E_SEM_DEWARPING (4).JPG",
@@ -227,7 +229,9 @@
       76.77
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (5).JPG": {
     "file": "M4E_SEM_DEWARPING (5).JPG",
@@ -342,7 +346,9 @@
       76.41
     ],
     "trajectory_smoothness": 0.04,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (9).JPG": {
     "file": "M4E_SEM_DEWARPING (9).JPG",
@@ -457,7 +463,9 @@
       76.26
     ],
     "trajectory_smoothness": 0.02,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (7).JPG": {
     "file": "M4E_SEM_DEWARPING (7).JPG",
@@ -572,7 +580,9 @@
       75.9
     ],
     "trajectory_smoothness": 0.17,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (6).JPG": {
     "file": "M4E_SEM_DEWARPING (6).JPG",
@@ -687,7 +697,9 @@
       76.03
     ],
     "trajectory_smoothness": 60.99,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (8).JPG": {
     "file": "M4E_SEM_DEWARPING (8).JPG",
@@ -802,7 +814,9 @@
       76.2
     ],
     "trajectory_smoothness": 100.52,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (10).JPG": {
     "file": "M4E_SEM_DEWARPING (10).JPG",
@@ -917,7 +931,9 @@
       76.45
     ],
     "trajectory_smoothness": 1.89,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (2).JPG": {
     "file": "M4E_SEM_DEWARPING (2).JPG",
@@ -1032,7 +1048,9 @@
       76.83
     ],
     "trajectory_smoothness": 0.02,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (12).JPG": {
     "file": "M4E_SEM_DEWARPING (12).JPG",
@@ -1147,7 +1165,9 @@
       76.71
     ],
     "trajectory_smoothness": 0.26,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_SEM_DEWARPING (11).JPG": {
     "file": "M4E_SEM_DEWARPING (11).JPG",
@@ -1262,7 +1282,9 @@
       76.94
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (12).JPG": {
     "file": "M4E_COM_DEWARP (12).JPG",
@@ -1377,7 +1399,9 @@
       76.61
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 1
+    "strip_id": 1,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "M4E_COM_DEWARP (5).JPG": {
     "file": "M4E_COM_DEWARP (5).JPG",
@@ -1492,7 +1516,9 @@
       76.76
     ],
     "trajectory_smoothness": 162.38,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (6).JPG": {
     "file": "M4E_COM_DEWARP (6).JPG",
@@ -1607,7 +1633,9 @@
       76.77
     ],
     "trajectory_smoothness": 0.68,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (3).JPG": {
     "file": "M4E_COM_DEWARP (3).JPG",
@@ -1722,7 +1750,9 @@
       72.89
     ],
     "trajectory_smoothness": 2.27,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (11).JPG": {
     "file": "M4E_COM_DEWARP (11).JPG",
@@ -1837,7 +1867,9 @@
       76.22
     ],
     "trajectory_smoothness": 3.31,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (8).JPG": {
     "file": "M4E_COM_DEWARP (8).JPG",
@@ -1952,7 +1984,9 @@
       75.83
     ],
     "trajectory_smoothness": 1.88,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (7).JPG": {
     "file": "M4E_COM_DEWARP (7).JPG",
@@ -2067,7 +2101,9 @@
       76.1
     ],
     "trajectory_smoothness": 81.18,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "M4E_COM_DEWARP (9).JPG": {
     "file": "M4E_COM_DEWARP (9).JPG",
@@ -2182,7 +2218,9 @@
       75.9
     ],
     "trajectory_smoothness": 84.81,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "M4E_COM_DEWARP (10).JPG": {
     "file": "M4E_COM_DEWARP (10).JPG",
@@ -2297,7 +2335,9 @@
       76.39
     ],
     "trajectory_smoothness": 0.62,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "M4E_COM_DEWARP (2).JPG": {
     "file": "M4E_COM_DEWARP (2).JPG",
@@ -2412,7 +2452,9 @@
       76.64
     ],
     "trajectory_smoothness": 1.73,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "M4E_COM_DEWARP (4).JPG": {
     "file": "M4E_COM_DEWARP (4).JPG",
@@ -2527,7 +2569,9 @@
       76.69
     ],
     "trajectory_smoothness": 1.05,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "5_LUZI (21).JPG": {
     "file": "5_LUZI (21).JPG",
@@ -2642,7 +2686,9 @@
       178.01
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (20).JPG": {
     "file": "5_LUZI (20).JPG",
@@ -2757,7 +2803,9 @@
       178.02
     ],
     "trajectory_smoothness": 17.82,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (19).JPG": {
     "file": "5_LUZI (19).JPG",
@@ -2872,7 +2920,9 @@
       178.05
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (18).JPG": {
     "file": "5_LUZI (18).JPG",
@@ -2987,7 +3037,9 @@
       178.02
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (17).JPG": {
     "file": "5_LUZI (17).JPG",
@@ -3102,7 +3154,9 @@
       178.02
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (16).JPG": {
     "file": "5_LUZI (16).JPG",
@@ -3217,7 +3271,9 @@
       178.02
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (15).JPG": {
     "file": "5_LUZI (15).JPG",
@@ -3299,7 +3355,7 @@
     "coverage_width": 237.6,
     "linear_velocity_instant": 12.0,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 102.60000000000001,
+    "incidence_angle": 102.6,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -3332,7 +3388,9 @@
       178.02
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (14).JPG": {
     "file": "5_LUZI (14).JPG",
@@ -3447,7 +3505,9 @@
       178.06
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (13).JPG": {
     "file": "5_LUZI (13).JPG",
@@ -3562,7 +3622,9 @@
       178.0
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "5_LUZI (12).JPG": {
     "file": "5_LUZI (12).JPG",
@@ -3677,7 +3739,9 @@
       178.03
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (8).JPG": {
     "file": "M3E_DRTKDESLIGFADO (8).JPG",
@@ -3792,7 +3856,9 @@
       181.29
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (11).JPG": {
     "file": "M3E_DRTKDESLIGFADO (11).JPG",
@@ -3874,7 +3940,7 @@
     "coverage_width": 242.08,
     "linear_velocity_instant": 11.3,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 106.80000000000001,
+    "incidence_angle": 106.8,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -3907,7 +3973,9 @@
       181.38
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (12).JPG": {
     "file": "M3E_DRTKDESLIGFADO (12).JPG",
@@ -4022,7 +4090,9 @@
       181.48
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (9).JPG": {
     "file": "M3E_DRTKDESLIGFADO (9).JPG",
@@ -4104,7 +4174,7 @@
     "coverage_width": 242.36,
     "linear_velocity_instant": 12.0,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 102.60000000000001,
+    "incidence_angle": 102.6,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -4137,7 +4207,9 @@
       181.59
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (7).JPG": {
     "file": "M3E_DRTKDESLIGFADO (7).JPG",
@@ -4219,7 +4291,7 @@
     "coverage_width": 242.37,
     "linear_velocity_instant": 12.0,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 101.60000000000001,
+    "incidence_angle": 101.6,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -4252,7 +4324,9 @@
       181.59
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (4).JPG": {
     "file": "M3E_DRTKDESLIGFADO (4).JPG",
@@ -4367,7 +4441,9 @@
       181.6
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (3).JPG": {
     "file": "M3E_DRTKDESLIGFADO (3).JPG",
@@ -4482,7 +4558,9 @@
       181.54
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (2).JPG": {
     "file": "M3E_DRTKDESLIGFADO (2).JPG",
@@ -4597,7 +4675,9 @@
       181.63
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (5).JPG": {
     "file": "M3E_DRTKDESLIGFADO (5).JPG",
@@ -4679,7 +4759,7 @@
     "coverage_width": 242.5,
     "linear_velocity_instant": 6.5,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 97.80000000000001,
+    "incidence_angle": 97.8,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -4712,7 +4792,9 @@
       181.69
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (6).JPG": {
     "file": "M3E_DRTKDESLIGFADO (6).JPG",
@@ -4794,7 +4876,7 @@
     "coverage_width": 242.5,
     "linear_velocity_instant": 12.0,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 105.10000000000001,
+    "incidence_angle": 105.1,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -4827,7 +4909,9 @@
       181.69
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "M3E_DRTKDESLIGFADO (10).JPG": {
     "file": "M3E_DRTKDESLIGFADO (10).JPG",
@@ -4909,7 +4993,7 @@
     "coverage_width": 242.54,
     "linear_velocity_instant": 12.0,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 99.30000000000001,
+    "incidence_angle": 99.3,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -4942,7 +5026,9 @@
       181.72
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (11).JPG": {
     "file": "3_CODEM (11).JPG",
@@ -5057,7 +5143,9 @@
       309.77
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (10).JPG": {
     "file": "3_CODEM (10).JPG",
@@ -5139,7 +5227,7 @@
     "coverage_width": 415.75,
     "linear_velocity_instant": 12.64,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 110.30000000000001,
+    "incidence_angle": 110.3,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -5172,7 +5260,9 @@
       311.5
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (9).JPG": {
     "file": "3_CODEM (9).JPG",
@@ -5287,7 +5377,9 @@
       313.01
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (8).JPG": {
     "file": "3_CODEM (8).JPG",
@@ -5402,7 +5494,9 @@
       314.45
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (7).JPG": {
     "file": "3_CODEM (7).JPG",
@@ -5517,7 +5611,9 @@
       315.88
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (6).JPG": {
     "file": "3_CODEM (6).JPG",
@@ -5632,7 +5728,9 @@
       317.39
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (5).JPG": {
     "file": "3_CODEM (5).JPG",
@@ -5714,7 +5812,7 @@
     "coverage_width": 425.62,
     "linear_velocity_instant": 14.84,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 106.30000000000001,
+    "incidence_angle": 106.3,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -5747,7 +5845,9 @@
       318.89
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (4).JPG": {
     "file": "3_CODEM (4).JPG",
@@ -5862,7 +5962,9 @@
       320.32
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (3).JPG": {
     "file": "3_CODEM (3).JPG",
@@ -5977,7 +6079,9 @@
       321.82
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (2).JPG": {
     "file": "3_CODEM (2).JPG",
@@ -6092,7 +6196,9 @@
       323.25
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "3_CODEM (12).JPG": {
     "file": "3_CODEM (12).JPG",
@@ -6207,7 +6313,9 @@
       326.17
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "4_IAC (11).JPG": {
     "file": "4_IAC (11).JPG",
@@ -6289,7 +6397,7 @@
     "coverage_width": 195.1,
     "linear_velocity_instant": 0.1,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 89.10000000000001,
+    "incidence_angle": 89.1,
     "predicted_overlap": 0.0,
     "is_ideal_overlap": false,
     "abrupt_change_flag": false,
@@ -6322,7 +6430,9 @@
       146.18
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (10).JPG": {
     "file": "4_IAC (10).JPG",
@@ -6437,7 +6547,9 @@
       146.19
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (9).JPG": {
     "file": "4_IAC (9).JPG",
@@ -6552,7 +6664,9 @@
       146.21
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (8).JPG": {
     "file": "4_IAC (8).JPG",
@@ -6634,7 +6748,7 @@
     "coverage_width": 195.11,
     "linear_velocity_instant": 12.91,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 104.10000000000001,
+    "incidence_angle": 104.1,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -6667,7 +6781,9 @@
       146.19
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (7).JPG": {
     "file": "4_IAC (7).JPG",
@@ -6782,7 +6898,9 @@
       146.21
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (6).JPG": {
     "file": "4_IAC (6).JPG",
@@ -6864,7 +6982,7 @@
     "coverage_width": 195.13,
     "linear_velocity_instant": 12.91,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 103.80000000000001,
+    "incidence_angle": 103.8,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -6897,7 +7015,9 @@
       146.2
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (5).JPG": {
     "file": "4_IAC (5).JPG",
@@ -6979,7 +7099,7 @@
     "coverage_width": 195.12,
     "linear_velocity_instant": 12.91,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 104.30000000000001,
+    "incidence_angle": 104.3,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -7012,7 +7132,9 @@
       146.19
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (4).JPG": {
     "file": "4_IAC (4).JPG",
@@ -7127,7 +7249,9 @@
       146.19
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (3).JPG": {
     "file": "4_IAC (3).JPG",
@@ -7242,7 +7366,9 @@
       146.2
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (2).JPG": {
     "file": "4_IAC (2).JPG",
@@ -7357,7 +7483,9 @@
       146.19
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "4_IAC (12).JPG": {
     "file": "4_IAC (12).JPG",
@@ -7472,7 +7600,9 @@
       146.19
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Unknown"
   },
   "2_PLANALTO (2).JPG": {
     "file": "2_PLANALTO (2).JPG",
@@ -7587,7 +7717,9 @@
       42.71
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "2_PLANALTO (3).JPG": {
     "file": "2_PLANALTO (3).JPG",
@@ -7702,7 +7834,9 @@
       42.08
     ],
     "trajectory_smoothness": 114.97,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "2_PLANALTO (4).JPG": {
     "file": "2_PLANALTO (4).JPG",
@@ -7817,7 +7951,9 @@
       43.22
     ],
     "trajectory_smoothness": 0.07,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "2_PLANALTO (5).JPG": {
     "file": "2_PLANALTO (5).JPG",
@@ -7932,7 +8068,9 @@
       43.3
     ],
     "trajectory_smoothness": 0.13,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "2_PLANALTO (6).JPG": {
     "file": "2_PLANALTO (6).JPG",
@@ -8047,7 +8185,9 @@
       43.3
     ],
     "trajectory_smoothness": 0.12,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "2_PLANALTO (7).JPG": {
     "file": "2_PLANALTO (7).JPG",
@@ -8162,7 +8302,9 @@
       43.39
     ],
     "trajectory_smoothness": 0.14,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "2_PLANALTO (8).JPG": {
     "file": "2_PLANALTO (8).JPG",
@@ -8277,7 +8419,9 @@
       43.78
     ],
     "trajectory_smoothness": 0.03,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "2_PLANALTO (9).JPG": {
     "file": "2_PLANALTO (9).JPG",
@@ -8392,7 +8536,9 @@
       44.07
     ],
     "trajectory_smoothness": 0.04,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "2_PLANALTO (10).JPG": {
     "file": "2_PLANALTO (10).JPG",
@@ -8507,7 +8653,9 @@
       44.47
     ],
     "trajectory_smoothness": 0.04,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "2_PLANALTO (11).JPG": {
     "file": "2_PLANALTO (11).JPG",
@@ -8622,7 +8770,9 @@
       44.76
     ],
     "trajectory_smoothness": 0.06,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "2_PLANALTO (12).JPG": {
     "file": "2_PLANALTO (12).JPG",
@@ -8737,7 +8887,9 @@
       44.87
     ],
     "trajectory_smoothness": 0.15,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "6_plan_tor (2).JPG": {
     "file": "6_plan_tor (2).JPG",
@@ -8852,7 +9004,9 @@
       36.76
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "6_plan_tor (3).JPG": {
     "file": "6_plan_tor (3).JPG",
@@ -8967,7 +9121,9 @@
       36.85
     ],
     "trajectory_smoothness": 60.83,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "6_plan_tor (4).JPG": {
     "file": "6_plan_tor (4).JPG",
@@ -9082,7 +9238,9 @@
       36.96
     ],
     "trajectory_smoothness": 0.16,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "6_plan_tor (5).JPG": {
     "file": "6_plan_tor (5).JPG",
@@ -9197,7 +9355,9 @@
       37.07
     ],
     "trajectory_smoothness": 0.24,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "6_plan_tor (6).JPG": {
     "file": "6_plan_tor (6).JPG",
@@ -9312,7 +9472,9 @@
       37.21
     ],
     "trajectory_smoothness": 0.19,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "6_plan_tor (7).JPG": {
     "file": "6_plan_tor (7).JPG",
@@ -9427,7 +9589,9 @@
       37.25
     ],
     "trajectory_smoothness": 0.07,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "6_plan_tor (8).JPG": {
     "file": "6_plan_tor (8).JPG",
@@ -9542,7 +9706,9 @@
       37.26
     ],
     "trajectory_smoothness": 0.26,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "6_plan_tor (9).JPG": {
     "file": "6_plan_tor (9).JPG",
@@ -9657,7 +9823,9 @@
       37.32
     ],
     "trajectory_smoothness": 0.15,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "6_plan_tor (10).JPG": {
     "file": "6_plan_tor (10).JPG",
@@ -9772,7 +9940,9 @@
       37.38
     ],
     "trajectory_smoothness": 0.33,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "6_plan_tor (11).JPG": {
     "file": "6_plan_tor (11).JPG",
@@ -9887,7 +10057,9 @@
       37.42
     ],
     "trajectory_smoothness": 0.08,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "6_plan_tor (12).JPG": {
     "file": "6_plan_tor (12).JPG",
@@ -10002,7 +10174,9 @@
       37.37
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "1_CERRADO (12).JPG": {
     "file": "1_CERRADO (12).JPG",
@@ -10117,7 +10291,9 @@
       247.7
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (2).JPG": {
     "file": "1_CERRADO (2).JPG",
@@ -10199,7 +10375,7 @@
     "coverage_width": 330.59,
     "linear_velocity_instant": 15.09,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 106.60000000000001,
+    "incidence_angle": 106.6,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -10232,7 +10408,9 @@
       247.69
     ],
     "trajectory_smoothness": 54.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (3).JPG": {
     "file": "1_CERRADO (3).JPG",
@@ -10347,7 +10525,9 @@
       247.69
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (4).JPG": {
     "file": "1_CERRADO (4).JPG",
@@ -10462,7 +10642,9 @@
       247.7
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (5).JPG": {
     "file": "1_CERRADO (5).JPG",
@@ -10577,7 +10759,9 @@
       247.71
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (6).JPG": {
     "file": "1_CERRADO (6).JPG",
@@ -10659,7 +10843,7 @@
     "coverage_width": 330.62,
     "linear_velocity_instant": 14.88,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 106.30000000000001,
+    "incidence_angle": 106.3,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -10692,7 +10876,9 @@
       247.71
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (7).JPG": {
     "file": "1_CERRADO (7).JPG",
@@ -10807,7 +10993,9 @@
       247.71
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (8).JPG": {
     "file": "1_CERRADO (8).JPG",
@@ -10889,7 +11077,7 @@
     "coverage_width": 330.62,
     "linear_velocity_instant": 14.78,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 108.30000000000001,
+    "incidence_angle": 108.3,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -10922,7 +11110,9 @@
       247.72
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (9).JPG": {
     "file": "1_CERRADO (9).JPG",
@@ -11037,7 +11227,9 @@
       247.69
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (10).JPG": {
     "file": "1_CERRADO (10).JPG",
@@ -11119,7 +11311,7 @@
     "coverage_width": 330.62,
     "linear_velocity_instant": 14.88,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 107.80000000000001,
+    "incidence_angle": 107.8,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -11152,7 +11344,9 @@
       247.71
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "1_CERRADO (11).JPG": {
     "file": "1_CERRADO (11).JPG",
@@ -11234,7 +11428,7 @@
     "coverage_width": 330.61,
     "linear_velocity_instant": 14.78,
     "rtk_effective_precision": "Alta",
-    "incidence_angle": 109.80000000000001,
+    "incidence_angle": 109.8,
     "predicted_overlap": 100.0,
     "is_ideal_overlap": true,
     "abrupt_change_flag": false,
@@ -11267,7 +11461,9 @@
       247.7
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Unknown"
   },
   "7_boibranco (2).JPG": {
     "file": "7_boibranco (2).JPG",
@@ -11382,7 +11578,9 @@
       46.53
     ],
     "trajectory_smoothness": 0.0,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "7_boibranco (3).JPG": {
     "file": "7_boibranco (3).JPG",
@@ -11497,7 +11695,9 @@
       46.07
     ],
     "trajectory_smoothness": 56.84,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "7_boibranco (4).JPG": {
     "file": "7_boibranco (4).JPG",
@@ -11612,7 +11812,9 @@
       45.54
     ],
     "trajectory_smoothness": 0.32,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "7_boibranco (5).JPG": {
     "file": "7_boibranco (5).JPG",
@@ -11727,7 +11929,9 @@
       45.28
     ],
     "trajectory_smoothness": 0.46,
-    "strip_id": 2
+    "strip_id": 2,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "7_boibranco (6).JPG": {
     "file": "7_boibranco (6).JPG",
@@ -11842,7 +12046,9 @@
       45.28
     ],
     "trajectory_smoothness": 178.92,
-    "strip_id": 3
+    "strip_id": 3,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "7_boibranco (7).JPG": {
     "file": "7_boibranco (7).JPG",
@@ -11957,7 +12163,9 @@
       44.81
     ],
     "trajectory_smoothness": 178.74,
-    "strip_id": 4
+    "strip_id": 4,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "7_boibranco (8).JPG": {
     "file": "7_boibranco (8).JPG",
@@ -12072,7 +12280,9 @@
       44.82
     ],
     "trajectory_smoothness": 174.67,
-    "strip_id": 5
+    "strip_id": 5,
+    "light_source_classification": "Fluorescent",
+    "light_consistency": "Consistent"
   },
   "7_boibranco (9).JPG": {
     "file": "7_boibranco (9).JPG",
@@ -12187,7 +12397,9 @@
       45.02
     ],
     "trajectory_smoothness": 120.53,
-    "strip_id": 5
+    "strip_id": 5,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "7_boibranco (10).JPG": {
     "file": "7_boibranco (10).JPG",
@@ -12302,7 +12514,9 @@
       45.21
     ],
     "trajectory_smoothness": 2.37,
-    "strip_id": 5
+    "strip_id": 5,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "7_boibranco (11).JPG": {
     "file": "7_boibranco (11).JPG",
@@ -12417,7 +12631,9 @@
       45.26
     ],
     "trajectory_smoothness": 0.3,
-    "strip_id": 5
+    "strip_id": 5,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   },
   "7_boibranco (12).JPG": {
     "file": "7_boibranco (12).JPG",
@@ -12532,6 +12748,8 @@
       45.22
     ],
     "trajectory_smoothness": 178.78,
-    "strip_id": 6
+    "strip_id": 6,
+    "light_source_classification": "Daylight",
+    "light_consistency": "Inconsistent"
   }
 }

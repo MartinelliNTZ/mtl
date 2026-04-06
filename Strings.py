@@ -544,6 +544,18 @@ class Strings:
             "attribute": "EV",
             "description": "Exposure Value EV = log2(FNumber² / ExposureTime). Padroniza iluminação entre imagens. [EV]"
         },
+        "light_source_classification": {
+            "normalized": "Custom:light_source_classification",
+            "core": "custom",
+            "attribute": "LSrcClass",
+            "description": "Classificação textual da fonte de luz baseada em LightSource EXIF e tabela LIGHT_SOURCE_VALUES. [LightSrcClass]"
+        },
+        "light_consistency": {
+            "normalized": "Custom:light_consistency",
+            "core": "custom",
+            "attribute": "LightCons",
+            "description": "Verificação de consistência entre LightSource e WhiteBalanceCCT. Retorna Consistent/Inconsistent/Unknown. [LightCons]"
+        },
         "vertical_stability": {
             "normalized": "Custom:vertical_stability",
             "core": "custom",
