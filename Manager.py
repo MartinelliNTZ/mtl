@@ -117,12 +117,14 @@ class Manager:
 
     @classmethod
     def collect_metadata(cls, item_path: str, compute_custom: bool = False) -> Union[Dict[str, object], Dict[str, Dict[str, object]]]:
-        """Orquestra a extração de metadados por caminho de arquivo ou diretório.
+        """\"\"\"Orquestra a extração de metadados por caminho de arquivo ou diretório.
         
         Args:
             item_path: Caminho arquivo/pasta
             compute_custom: Se True, chama CustomUtil após extração
-        """
+        \"\"\"''"""
+        from Strings import Strings
+        DECIMAL_PLACES = Strings.DECIMAL_PLACES
         if os.path.isdir(item_path):
             images = cls._list_image_files(item_path)
             result = {}

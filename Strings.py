@@ -403,6 +403,8 @@ class Strings:
     }
     
     
+    DECIMAL_PLACES = 2
+    
     CUSTOM_FIELDS = {
         "GimbalOffset": {
             "normalized": "xmp_bloco_1:drone-dji:GimbalOffset",
