@@ -525,6 +525,72 @@ class Strings:
             "core": "custom",
             "attribute": "SpdKmH",
             "description": "Velocidade 3D do drone em km/h (speed_3d * 3.6). Formato legível para relatórios. [SpdKmH]"
+        },
+        "yaw_alignment_error": {
+            "normalized": "Custom:yaw_alignment_error",
+            "core": "custom",
+            "attribute": "YawErr",
+            "description": "Erro de alinhamento entre direção do drone (FlightYawDegree) e deslocamento real. Detecta drift. [YawErr]"
+        },
+        "motion_blur_risk": {
+            "normalized": "Custom:motion_blur_risk",
+            "core": "custom",
+            "attribute": "BlurRisk",
+            "description": "Risco de motion blur = (speed_3d * ExposureTime) / GSD. Filtra imagens borradas. [BlurRisk]"
+        },
+        "exposure_value_ev": {
+            "normalized": "Custom:exposure_value_ev",
+            "core": "custom",
+            "attribute": "EV",
+            "description": "Exposure Value EV = log2(FNumber² / ExposureTime). Padroniza iluminação entre imagens. [EV]"
+        },
+        "vertical_stability": {
+            "normalized": "Custom:vertical_stability",
+            "core": "custom",
+            "attribute": "VertStb",
+            "description": "Variação vertical |alt_curr - alt_prev|. Detecta oscilações de altitude. [VertStb]"
+        },
+        "trajectory_smoothness": {
+            "normalized": "Custom:trajectory_smoothness",
+            "core": "custom",
+            "attribute": "TrajSmt",
+            "description": "|dir_curr - dir_prev|. Suavidade da trajetória (0=linha reta). [TrajSmt]"
+        },
+        "speed_variation_index": {
+            "normalized": "Custom:speed_variation_index",
+            "core": "custom",
+            "attribute": "SpdVar",
+            "description": "std(speed_3d)/mean(speed_3d). Consistência velocidade no voo. [SpdVar]"
+        },
+        "rtk_stability_score": {
+            "normalized": "Custom:rtk_stability_score",
+            "core": "custom",
+            "attribute": "RtkStab",
+            "description": "Variação dos desvios RTK. Estabilidade da correção GNSS. [RtkStab]"
+        },
+        "capture_efficiency": {
+            "normalized": "Custom:capture_efficiency",
+            "core": "custom",
+            "attribute": "CapEff",
+            "description": "geodesic_distance_previous / coverage_width. Eficiência cobertura vs deslocamento. [CapEff]"
+        },
+        "photogrammetry_quality_index": {
+            "normalized": "Custom:photogrammetry_quality_index", 
+            "core": "custom",
+            "attribute": "PQI",
+            "description": "Score geral fotogrametria (overlap+RTK+angle+blur+alignment). Rank qualidade imagem. [PQI]"
+        },
+        "strip_id": {
+            "normalized": "Custom:strip_id",
+            "core": "custom",
+            "attribute": "StripID",
+            "description": "ID da faixa de voo (incrementa a cada ~180° mudança direção). Organiza linhas voo. [StripID]"
+        },
+        "wind_effect_estimation": {
+            "normalized": "Custom:wind_effect_estimation",
+            "core": "custom",
+            "attribute": "WindEff",
+            "description": "|FlightYawDegree - displacement_direction|. Estimativa drift por vento. [WindEff]"
         }
     }
     

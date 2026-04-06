@@ -224,8 +224,8 @@ class CustomUtil:
         }
 
     @staticmethod
-    def _calculate_gimbal_3d(data: Dict) -> Dict:
-        """GimbalOffset e 3DSpeed."""
+    def _calculate_gimbal_3d(data: Dict, prev_dir: float = None) -> Dict:
+        """GimbalOffset, 3DSpeed + yaw_alignment_error."""
         gim_yaw = CustomUtil.safe_float(data["GimbalYawDegree"])
         flight_yaw = CustomUtil.safe_float(data["FlightYawDegree"])
         gimbal_offset = gim_yaw - flight_yaw - 180
@@ -233,12 +233,17 @@ class CustomUtil:
         xspd = CustomUtil.safe_float(data["FlightXSpeed"])
         yspd = CustomUtil.safe_float(data["FlightYSpeed"])
         zspd = CustomUtil.safe_float(data["FlightZSpeed"])
-        speed_3d = round(math.sqrt(xspd**2 + yspd**2 + zspd**2),DECIMAL_PLACES)
+        speed_3d = math.sqrt(xspd**2 + yspd**2 + zspd**2)
+
+        # Novo: yaw_alignment_error
+        displacement_dir = data.get('prev_displacement_direction', 0)
+        yaw_alignment_error = abs(flight_yaw - displacement_dir)
 
         return {
             "gimbal_offset": round(gimbal_offset, DECIMAL_PLACES),
             "speed_3d": round(speed_3d, DECIMAL_PLACES),
             "speed_3d_kmh": round(speed_3d * 3.6, 1),
+            "yaw_alignment_error": round(yaw_alignment_error, DECIMAL_PLACES),
         }
 
     @staticmethod
