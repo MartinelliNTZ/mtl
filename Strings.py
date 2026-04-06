@@ -585,12 +585,6 @@ class Strings:
             "core": "custom",
             "attribute": "StripID",
             "description": "ID da faixa de voo (incrementa a cada ~180° mudança direção). Organiza linhas voo. [StripID]"
-        },
-        "wind_effect_estimation": {
-            "normalized": "Custom:wind_effect_estimation",
-            "core": "custom",
-            "attribute": "WindEff",
-            "description": "|FlightYawDegree - displacement_direction|. Estimativa drift por vento. [WindEff]"
         }
     }
     

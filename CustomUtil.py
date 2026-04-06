@@ -256,7 +256,6 @@ class CustomUtil:
             "motion_blur_risk": round(motion_blur_risk, DECIMAL_PLACES),
             "exposure_value_ev": round(exposure_value_ev, DECIMAL_PLACES),
             "coverage_width": round(coverage_width, DECIMAL_PLACES),
-            "speed_3d": round(speed_3d, DECIMAL_PLACES),  # expose for other uses
             "linear_velocity_instant": round(speed_3d, DECIMAL_PLACES),
         }
 
@@ -275,14 +274,13 @@ class CustomUtil:
         displacement_dir = prev_dir if prev_dir is not None else flight_yaw
         yaw_alignment_error = min(abs(flight_yaw - displacement_dir), 360 - abs(flight_yaw - displacement_dir))
 
-        wind_effect_estimation = yaw_alignment_error  # reuse as wind proxy
+        yaw_alignment_error = min(abs(flight_yaw - displacement_dir), 360 - abs(flight_yaw - displacement_dir))
 
         return {
             "gimbal_offset": round(gimbal_offset, DECIMAL_PLACES),
             "speed_3d": round(speed_3d, DECIMAL_PLACES),
             "speed_3d_kmh": round(speed_3d * 3.6, 1),
             "yaw_alignment_error": round(yaw_alignment_error, DECIMAL_PLACES),
-            "wind_effect_estimation": round(wind_effect_estimation, DECIMAL_PLACES),
         }
 
     @staticmethod
@@ -512,18 +510,17 @@ class CustomUtil:
 
             custom = {
                 **individual,
-                **gim_3d,
                 **quality,
-                **prev_seq,
                 **next_seq,
                 **validation,
                 "GimbalOffset": round(gim_3d["gimbal_offset"], DECIMAL_PLACES),
                 "3DSpeed": round(gim_3d["speed_3d"], DECIMAL_PLACES),
+                "speed_3d_kmh": round(gim_3d["speed_3d_kmh"], 1),
+                "yaw_alignment_error": round(gim_3d["yaw_alignment_error"], DECIMAL_PLACES),
                 "time_since_previous": round(prev_seq["prev_time_since"], DECIMAL_PLACES),
                 "geodesic_distance_previous": round(prev_seq["prev_geodesic_distance"], DECIMAL_PLACES),
                 "distance_3d_previous": round(prev_seq["prev_distance_3d"], DECIMAL_PLACES),
                 "avg_velocity_between_photos": round(prev_seq["prev_avg_velocity"], DECIMAL_PLACES),
-                "linear_velocity_instant": round(gim_3d["speed_3d"], DECIMAL_PLACES),
                 "displacement_direction": round(prev_seq["prev_displacement_direction"], DECIMAL_PLACES),
                 "estimated_coverage": estimated_coverage,
                 "coverage_width": round(coverage_width, DECIMAL_PLACES),
