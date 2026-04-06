@@ -18,11 +18,11 @@ def main():
     # Caminho único (arquivo)
     dicionario = manager.collect_metadata(img_path)
     print("== Metadados da imagem ==")
-    #print(dicionario)
+    print(dicionario)
 
     # Caminho de pasta
     result_folder = manager.collect_metadata(folder_path)
-    #print("== Metadados do diretório ==")
+    print("== Metadados do diretório ==")
     print(result_folder)
     print(f"{len(result_folder)} imagens processadas")
 
