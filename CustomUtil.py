@@ -260,11 +260,29 @@ class CustomUtil:
         }
 
     @staticmethod
+    def _calculate_gimbal_offset(gim_yaw: float, flight_yaw: float) -> float:
+        """Calcula o offset do gimbal baseado na diferença mínima com flight yaw."""
+        # Normaliza ângulos para 0-360
+        gim_yaw_norm = (gim_yaw % 360 + 360) % 360
+        flight_yaw_norm = (flight_yaw % 360 + 360) % 360
+        
+        # Diferença absoluta
+        diff = abs(gim_yaw_norm - flight_yaw_norm)
+        diff_min = min(diff, 360 - diff)
+        if diff > 150 and diff < 300:
+            diff = abs(180 - diff)
+        elif diff > 300:
+            diff = abs(360 - diff)
+        # Ajuste para casos extremos (ex: 10° vs 190°)
+        # Offset = |diff_min - 180|
+        return abs(diff)
+
+    @staticmethod
     def _calculate_gimbal_3d(data: Dict, prev_dir: float = None) -> Dict:
         """GimbalOffset, 3DSpeed + yaw_alignment_error."""
         gim_yaw = CustomUtil.safe_float(data["GimbalYawDegree"])
         flight_yaw = CustomUtil.safe_float(data["FlightYawDegree"])
-        gimbal_offset = (gim_yaw - flight_yaw - 180) % 360  # normalize 0-360
+        gimbal_offset = CustomUtil._calculate_gimbal_offset(gim_yaw, flight_yaw)
 
         xspd = CustomUtil.safe_float(data["FlightXSpeed"])
         yspd = CustomUtil.safe_float(data["FlightYSpeed"])

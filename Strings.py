@@ -410,193 +410,193 @@ class Strings:
             "normalized": "xmp_bloco_1:drone-dji:GimbalOffset",
             "core": "custom",
             "attribute": "GimOffset",
-            "description": "Deslocamento do Gimbal em relação a aeronave (GimbalYawDegree - FlightYawDegree -180) [GimOffset]"
+            "description": "Deslocamento angular mínimo do gimbal em relação à aeronave em graus (GimbalYawDegree - FlightYawDegree - 180, normalizado para menor ângulo). Valores: 0-180°. Valor referência: <1°. [GimOffset]"
         },
         "3DSpeed": {
             "normalized": "Custom:3DSpeed",
             "core": "custom",
             "attribute": "3DSpeed",
-            "description": "Velocidade total de deslocamento da aeronave calculada a partir das velocidades de voo X, Y e Z (FlightXSpeed, FlightYSpeed, FlightZSpeed) [3DSpeed]"
+            "description": "Velocidade total 3D da aeronave em m/s, calculada como sqrt(FlightXSpeed² + FlightYSpeed² + FlightZSpeed²). Valores: 0-50 m/s. Valor referência: <10 m/s para voos estáveis. [3DSpeed]"
         },
         "time_since_previous": {
             "normalized": "Custom:time_since_previous",
             "core": "custom",
             "attribute": "TimePrv",
-            "description": "Tempo decorrido (segundos) desde a foto anterior, calculado como diferença entre DateTimeOriginal da foto atual e da anterior. Indica a cadência de captura. [TimePrv]"
+            "description": "Tempo em segundos desde a foto anterior. Valores: 0-120 s. Valor referência: 2-5 s para cadência ideal. [TimePrv]"
         },
         "geodesic_distance_previous": {
             "normalized": "Custom:geodesic_distance_previous",
             "core": "custom",
             "attribute": "GeoDstP",
-            "description": "Distância horizontal (metros) entre a posição GPS atual e a anterior, utilizando a fórmula de Haversine com as coordenadas (GPSLatitude, GPSLongitude). [GeoDstP]"
+            "description": "Distância horizontal em metros entre posições GPS consecutivas (fórmula Haversine). Valores: 0-100 m. Valor referência: 20-50 m para sobreposição adequada. [GeoDstP]"
         },
         "distance_3d_previous": {
             "normalized": "Custom:distance_3d_previous",
             "core": "custom",
             "attribute": "Dist3DP",
-            "description": "Distância tridimensional (metros) entre a posição atual e a anterior, combinando a distância horizontal com a diferença de altitude (AbsoluteAltitude ou GPSAltitude). [Dist3DP]"
+            "description": "Distância 3D em metros entre posições consecutivas (horizontal + altitude). Valores: 0-100 m. Valor referência: 20-50 m. [Dist3DP]"
         },
         "avg_velocity_between_photos": {
             "normalized": "Custom:avg_velocity_between_photos",
             "core": "custom",
             "attribute": "AvgVelB",
-            "description": "Velocidade média (m/s) no intervalo entre a foto anterior e a atual, calculada como distancia_3d_anterior / tempo_desde_anterior. [AvgVelB]"
+            "description": "Velocidade média em m/s entre fotos consecutivas. Valores: 0-20 m/s. Valor referência: 5-10 m/s. [AvgVelB]"
         },
         "linear_velocity_instant": {
             "normalized": "Custom:linear_velocity_instant",
             "core": "custom",
             "attribute": "LinVelI",
-            "description": "Módulo da velocidade vetorial (m/s) fornecida pelos campos FlightXSpeed, FlightYSpeed, FlightZSpeed: sqrt(XSpeed² + YSpeed² + ZSpeed²). [LinVelI]"
+            "description": "Velocidade instantânea 3D em m/s. Valores: 0-50 m/s. Valor referência: <10 m/s. [LinVelI]"
         },
         "displacement_direction": {
             "normalized": "Custom:displacement_direction",
             "core": "custom",
             "attribute": "DirDispl",
-            "description": "Azimute (graus) do deslocamento entre a posição anterior e a atual, medido a partir do norte verdadeiro. Indica a direção de movimento. [DirDispl]"
+            "description": "Azimute do deslocamento em graus (0=Norte). Valores: 0-360°. Valor referência: varia por missão. [DirDispl]"
         },
         "incidence_angle": {
             "normalized": "Custom:incidence_angle",
             "core": "custom",
             "attribute": "IncAngle",
-            "description": "Ângulo (graus) entre o eixo óptico da câmera e a vertical do terreno, combinando GimbalPitchDegree e FlightPitchDegree. Importante para fotogrametria. [IncAngle]"
+            "description": "Ângulo de incidência em graus (ângulo entre câmera e vertical). Valores: 0-180°. Valor referência: <5° para nadir. [IncAngle]"
         },
         "estimated_coverage": {
             "normalized": "Custom:estimated_coverage",
             "core": "custom",
             "attribute": "EstCover",
-            "description": "Tupla (largura_m, altura_m) estimada da área projetada no solo, baseada na altitude, campo de visão (derivado do modelo) e ângulo do gimbal. [EstCover]"
+            "description": "Tupla (largura, altura) em metros da cobertura estimada no solo. Valores: (0-200, 0-150) m. Valor referência: depende altitude. [EstCover]"
         },
         "predicted_overlap": {
             "normalized": "Custom:predicted_overlap",
             "core": "custom",
             "attribute": "PredOver",
-            "description": "Percentual de sobreposição longitudinal com a imagem anterior, calculado como (1 - (distancia_geodesica_anterior / cobertura_estimada_largura)) * 100, limitado a [0,100]. [PredOver]"
+            "description": "Percentual de sobreposição longitudinal com foto anterior. Valores: 0-100%. Valor referência: >60%. [PredOver]"
         },
         "rtk_effective_precision": {
             "normalized": "Custom:rtk_effective_precision",
             "core": "custom",
             "attribute": "RTKPrec",
-            "description": "Classificação textual da precisão RTK: 'Alta' (RtkFlag=50 e desvios < 0.02), 'Média' (desvios < 0.1), 'Baixa' (desvios >= 0.1), 'Sem RTK' (RtkFlag=0). [RTKPrec]"
+            "description": "Classificação textual da precisão RTK. Valores: Alta, Média, Baixa, Sem RTK. Valor referência: Alta. [RTKPrec]"
         },
         "is_ideal_overlap": {
             "normalized": "Custom:is_ideal_overlap",
             "core": "custom",
             "attribute": "IdealOvl",
-            "description": "Booleano indicando se a sobreposição prevista é maior ou igual a um limiar (ex.: 60%). Útil para controle de qualidade do voo. [IdealOvl]"
+            "description": "Booleano indicando se sobreposição >=60%. Valores: True/False. Valor referência: True. [IdealOvl]"
         },
         "abrupt_change_flag": {
             "normalized": "Custom:abrupt_change_flag",
             "core": "custom",
             "attribute": "AbrChgF",
-            "description": "Booleano que sinaliza quando o tempo_desde_anterior ou a distancia_geodesica_anterior excede significativamente a mediana do conjunto (ex.: > 2× mediana). [AbrChgF]"
+            "description": "Flag de mudança brusca (tempo ou distância >2x mediana). Valores: True/False. Valor referência: False. [AbrChgF]"
         },
         "gimbal_angular_velocity": {
             "normalized": "Custom:gimbal_angular_velocity",
             "core": "custom",
             "attribute": "GimAngV",
-            "description": "Variação de GimbalYawDegree (graus por segundo) entre a imagem atual e a anterior, indicando se o gimbal estava girando durante a captura. [GimAngV]"
+            "description": "Variação angular do gimbal em °/s. Valores: 0-100 °/s. Valor referência: <1 °/s. [GimAngV]"
         },
         "orthorectification_potential": {
             "normalized": "Custom:orthorectification_potential",
             "core": "custom",
             "attribute": "OrtoPot",
-            "description": "Score (0–100) que avalia a adequação da imagem para fotogrametria de alta precisão, combinando precisão RTK, angulo_de_incidencia, CalibratedFocalLength e DewarpFlag. [OrtoPot]"
+            "description": "Score de potencial para ortorretificação (0-100). Valores: 0-100. Valor referência: >80. [OrtoPot]"
         },
         "shutter_life_pct": {
             "normalized": "Custom:shutter_life_pct",
             "core": "custom",
             "attribute": "ShutPct",
-            "description": "% de vida útil da câmera (ShutterCount / 400000 * 100). Máximo ~400k fotos Zenmuse. [ShutPct]"
+            "description": "% de vida útil do obturador. Valores: 0-100%. Valor referência: <50%. [ShutPct]"
         },
         "ground_sample_distance_cm": {
             "normalized": "Custom:ground_sample_distance_cm",
             "core": "custom",
             "attribute": "GsdCmPx",
-            "description": "GSD resolução espacial solo (cm/pixel) = LRFTargetDistance_cm * sensor_pitch_um / FocalLength_mm. Essencial fotogrametria. [GsdCmPx]"
+            "description": "GSD em cm/pixel. Valores: 0-10 cm. Valor referência: <2 cm. [GsdCmPx]"
         },
         "total_heat_index": {
             "normalized": "Custom:total_heat_index",
             "core": "custom", 
             "attribute": "HeatIdx",
-            "description": "Índice térmico médio ((SensorTemperature + LensTemperature) / 2) em °C. Indica superaquecimento/ruído. [HeatIdx]"
+            "description": "Índice térmico médio em °C. Valores: 20-60 °C. Valor referência: <40 °C. [HeatIdx]"
         },
         "speed_3d_kmh": {
             "normalized": "Custom:speed_3d_kmh",
             "core": "custom",
             "attribute": "SpdKmH",
-            "description": "Velocidade 3D do drone em km/h (speed_3d * 3.6). Formato legível para relatórios. [SpdKmH]"
+            "description": "Velocidade 3D do drone em km/h. Valores: 0-180 km/h. Valor referência: <36 km/h. [SpdKmH]"
         },
         "yaw_alignment_error": {
             "normalized": "Custom:yaw_alignment_error",
             "core": "custom",
             "attribute": "YawErr",
-            "description": "Erro de alinhamento entre direção do drone (FlightYawDegree) e deslocamento real. Detecta drift. [YawErr]"
+            "description": "Erro de alinhamento yaw em graus. Valores: 0-180°. Valor referência: <5°. [YawErr]"
         },
         "motion_blur_risk": {
             "normalized": "Custom:motion_blur_risk",
             "core": "custom",
             "attribute": "BlurRisk",
-            "description": "Risco de motion blur = (speed_3d * ExposureTime) / GSD. Filtra imagens borradas. [BlurRisk]"
+            "description": "Risco de motion blur em pixels. Valores: 0-5. Valor referência: <0.5. [BlurRisk]"
         },
         "exposure_value_ev": {
             "normalized": "Custom:exposure_value_ev",
             "core": "custom",
             "attribute": "EV",
-            "description": "Exposure Value EV = log2(FNumber² / ExposureTime). Padroniza iluminação entre imagens. [EV]"
+            "description": "Valor de exposição EV. Valores: 8-16. Valor referência: 12-14. [EV]"
         },
         "light_source_classification": {
             "normalized": "Custom:light_source_classification",
             "core": "custom",
             "attribute": "LSrcClass",
-            "description": "Classificação textual da fonte de luz baseada em LightSource EXIF e tabela LIGHT_SOURCE_VALUES. [LightSrcClass]"
+            "description": "Classificação textual da fonte de luz EXIF. Valores: Daylight, Fluorescent, etc. Valor referência: Daylight. [LSrcClass]"
         },
         "light_consistency": {
             "normalized": "Custom:light_consistency",
             "core": "custom",
             "attribute": "LightCons",
-            "description": "Verificação de consistência entre LightSource e WhiteBalanceCCT. Retorna Consistent/Inconsistent/Unknown. [LightCons]"
+            "description": "Consistência entre LightSource e CCT. Valores: Consistent, Inconsistent, Unknown. Valor referência: Consistent. [LightCons]"
         },
         "vertical_stability": {
             "normalized": "Custom:vertical_stability",
             "core": "custom",
             "attribute": "VertStb",
-            "description": "Variação vertical |alt_curr - alt_prev|. Detecta oscilações de altitude. [VertStb]"
+            "description": "Variação vertical em metros. Valores: 0-10 m. Valor referência: <1 m. [VertStb]"
         },
         "trajectory_smoothness": {
             "normalized": "Custom:trajectory_smoothness",
             "core": "custom",
             "attribute": "TrajSmt",
-            "description": "|dir_curr - dir_prev|. Suavidade da trajetória (0=linha reta). [TrajSmt]"
+            "description": "Diferença angular de direção em graus. Valores: 0-180°. Valor referência: <10°. [TrajSmt]"
         },
         "speed_variation_index": {
             "normalized": "Custom:speed_variation_index",
             "core": "custom",
             "attribute": "SpdVar",
-            "description": "std(speed_3d)/mean(speed_3d). Consistência velocidade no voo. [SpdVar]"
+            "description": "Índice de variação de velocidade (coeficiente de variação). Valores: 0-1. Valor referência: <0.1. [SpdVar]"
         },
         "rtk_stability_score": {
             "normalized": "Custom:rtk_stability_score",
             "core": "custom",
             "attribute": "RtkStab",
-            "description": "Variação dos desvios RTK. Estabilidade da correção GNSS. [RtkStab]"
+            "description": "Score de estabilidade RTK (0-100). Valores: 0-100. Valor referência: >90. [RtkStab]"
         },
         "capture_efficiency": {
             "normalized": "Custom:capture_efficiency",
             "core": "custom",
             "attribute": "CapEff",
-            "description": "geodesic_distance_previous / coverage_width. Eficiência cobertura vs deslocamento. [CapEff]"
+            "description": "Eficiência de captura (distância/cobertura). Valores: 0-1. Valor referência: 0.5-0.8. [CapEff]"
         },
         "photogrammetry_quality_index": {
             "normalized": "Custom:photogrammetry_quality_index", 
             "core": "custom",
             "attribute": "PQI",
-            "description": "Score geral fotogrametria (overlap+RTK+angle+blur+alignment). Rank qualidade imagem. [PQI]"
+            "description": "Índice de qualidade fotogramétrica (0-100). Valores: 0-100. Valor referência: >80. [PQI]"
         },
         "strip_id": {
             "normalized": "Custom:strip_id",
             "core": "custom",
             "attribute": "StripID",
-            "description": "ID da faixa de voo (incrementa a cada ~180° mudança direção). Organiza linhas voo. [StripID]"
+            "description": "ID da faixa de voo. Valores: 1+. Valor referência: incremental. [StripID]"
         }
     }
     
