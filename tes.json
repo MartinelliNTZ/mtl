@@ -1,0 +1,162 @@
+[
+  {
+    "key": "GimbalOffset",
+    "label": "Gimbal Offset",
+    "description": "Deslocamento angular mínimo do gimbal em relação à aeronave em graus (GimbalYawDegree - FlightYawDegree - 180, normalizado para menor ângulo). Valores: 0-180°. Valor referência: <1°. [GimOffset]"
+  },
+  {
+    "key": "3DSpeed",
+    "label": "3 D Speed",
+    "description": "Velocidade total 3D da aeronave em m/s, calculada como sqrt(FlightXSpeed² + FlightYSpeed² + FlightZSpeed²). Valores: 0-50 m/s. Valor referência: <10 m/s para voos estáveis. [3DSpeed]"
+  },
+  {
+    "key": "time_since_previous",
+    "label": "Time Since Previous",
+    "description": "Tempo em segundos desde a foto anterior. Valores: 0-120 s. Valor referência: 2-5 s para cadência ideal. [TimePrv]"
+  },
+  {
+    "key": "geodesic_distance_previous",
+    "label": "Geodesic Distance Previous",
+    "description": "Distância horizontal em metros entre posições GPS consecutivas (fórmula Haversine). Valores: 0-100 m. Valor referência: 20-50 m para sobreposição adequada. [GeoDstP]"
+  },
+  {
+    "key": "distance_3d_previous",
+    "label": "Distance 3 D Previous",
+    "description": "Distância 3D em metros entre posições consecutivas (horizontal + altitude). Valores: 0-100 m. Valor referência: 20-50 m. [Dist3DP]"
+  },
+  {
+    "key": "avg_velocity_between_photos",
+    "label": "Avg Velocity Between Photos",
+    "description": "Velocidade média em m/s entre fotos consecutivas. Valores: 0-20 m/s. Valor referência: 5-10 m/s. [AvgVelB]"
+  },
+  {
+    "key": "linear_velocity_instant",
+    "label": "Linear Velocity Instant",
+    "description": "Velocidade instantânea 3D em m/s. Valores: 0-50 m/s. Valor referência: <10 m/s. [LinVelI]"
+  },
+  {
+    "key": "displacement_direction",
+    "label": "Displacement Direction",
+    "description": "Azimute do deslocamento em graus (0=Norte). Valores: 0-360°. Valor referência: varia por missão. [DirDispl]"
+  },
+  {
+    "key": "incidence_angle",
+    "label": "Incidence Angle",
+    "description": "Ângulo de incidência em graus (ângulo entre câmera e vertical). Valores: 0-180°. Valor referência: <5° para nadir. [IncAngle]"
+  },
+  {
+    "key": "estimated_coverage",
+    "label": "Estimated Coverage",
+    "description": "Tupla (largura, altura) em metros da cobertura estimada no solo. Valores: (0-200, 0-150) m. Valor referência: depende altitude. [EstCover]"
+  },
+  {
+    "key": "predicted_overlap",
+    "label": "Predicted Overlap",
+    "description": "Percentual de sobreposição longitudinal com foto anterior. Valores: 0-100%. Valor referência: >60%. [PredOver]"
+  },
+  {
+    "key": "rtk_effective_precision",
+    "label": "RTK Effective Precision",
+    "description": "Classificação textual da precisão RTK. Valores: Alta, Média, Baixa, Sem RTK. Valor referência: Alta. [RTKPrec]"
+  },
+  {
+    "key": "is_ideal_overlap",
+    "label": "Is Ideal Overlap",
+    "description": "Booleano indicando se sobreposição >=60%. Valores: True/False. Valor referência: True. [IdealOvl]"
+  },
+  {
+    "key": "abrupt_change_flag",
+    "label": "Abrupt Change Flag",
+    "description": "Flag de mudança brusca (tempo ou distância >2x mediana). Valores: True/False. Valor referência: False. [AbrChgF]"
+  },
+  {
+    "key": "gimbal_angular_velocity",
+    "label": "Gimbal Angular Velocity",
+    "description": "Variação angular do gimbal em °/s. Valores: 0-100 °/s. Valor referência: <1 °/s. [GimAngV]"
+  },
+  {
+    "key": "orthorectification_potential",
+    "label": "Orthorectification Potential",
+    "description": "Score de potencial para ortorretificação (0-100). Valores: 0-100. Valor referência: >80. [OrtoPot]"
+  },
+  {
+    "key": "shutter_life_pct",
+    "label": "Shutter Life Pct",
+    "description": "% de vida útil do obturador. Valores: 0-100%. Valor referência: <50%. [ShutPct]"
+  },
+  {
+    "key": "ground_sample_distance_cm",
+    "label": "Ground Sample Distance Cm",
+    "description": "GSD em cm/pixel. Valores: 0-10 cm. Valor referência: <2 cm. [GsdCmPx]"
+  },
+  {
+    "key": "total_heat_index",
+    "label": "Total Heat Index",
+    "description": "Índice térmico médio em °C. Valores: 20-60 °C. Valor referência: <40 °C. [HeatIdx]"
+  },
+  {
+    "key": "speed_3d_kmh",
+    "label": "Speed 3 D Kmh",
+    "description": "Velocidade 3D do drone em km/h. Valores: 0-180 km/h. Valor referência: <36 km/h. [SpdKmH]"
+  },
+  {
+    "key": "yaw_alignment_error",
+    "label": "Yaw Alignment Error",
+    "description": "Erro de alinhamento yaw em graus. Valores: 0-180°. Valor referência: <5°. [YawErr]"
+  },
+  {
+    "key": "motion_blur_risk",
+    "label": "Motion Blur Risk",
+    "description": "Risco de motion blur em pixels. Valores: 0-5. Valor referência: <0.5. [BlurRisk]"
+  },
+  {
+    "key": "exposure_value_ev",
+    "label": "Exposure Value EV",
+    "description": "Valor de exposição EV. Valores: 8-16. Valor referência: 12-14. [EV]"
+  },
+  {
+    "key": "light_source_classification",
+    "label": "Light Source Classification",
+    "description": "Classificação textual da fonte de luz EXIF. Valores: Daylight, Fluorescent, etc. Valor referência: Daylight. [LSrcClass]"
+  },
+  {
+    "key": "light_consistency",
+    "label": "Light Consistency",
+    "description": "Consistência entre LightSource e CCT. Valores: Consistent, Inconsistent, Unknown. Valor referência: Consistent. [LightCons]"
+  },
+  {
+    "key": "vertical_stability",
+    "label": "Vertical Stability",
+    "description": "Variação vertical em metros. Valores: 0-10 m. Valor referência: <1 m. [VertStb]"
+  },
+  {
+    "key": "trajectory_smoothness",
+    "label": "Trajectory Smoothness",
+    "description": "Diferença angular de direção em graus. Valores: 0-180°. Valor referência: <10°. [TrajSmt]"
+  },
+  {
+    "key": "speed_variation_index",
+    "label": "Speed Variation Index",
+    "description": "Índice de variação de velocidade (coeficiente de variação). Valores: 0-1. Valor referência: <0.1. [SpdVar]"
+  },
+  {
+    "key": "rtk_stability_score",
+    "label": "RTK Stability Score",
+    "description": "Score de estabilidade RTK (0-100). Valores: 0-100. Valor referência: >90. [RtkStab]"
+  },
+  {
+    "key": "capture_efficiency",
+    "label": "Capture Efficiency",
+    "description": "Eficiência de captura (distância/cobertura). Valores: 0-1. Valor referência: 0.5-0.8. [CapEff]"
+  },
+  {
+    "key": "photogrammetry_quality_index",
+    "label": "Photogrammetry Quality Index",
+    "description": "Índice de qualidade fotogramétrica (0-100). Valores: 0-100. Valor referência: >80. [PQI]"
+  },
+  {
+    "key": "strip_id",
+    "label": "Strip ID",
+    "description": "ID da faixa de voo. Valores: 1+. Valor referência: incremental. [StripID]"
+  }
+]

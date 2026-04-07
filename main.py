@@ -3,6 +3,7 @@ from ExifUtil import ExifUtil
 from XmpUtil import XmpUtil
 from Manager import Manager
 from Strings import Strings
+from StringAdapter import StringAdapter
 
 
 
@@ -36,6 +37,9 @@ def main():
     with open('metadata_completa_custom.json', 'w', encoding='utf-8') as f:
         json.dump(result_folder, f, indent=2, ensure_ascii=False, default=str)
     print("\n💾 Salvo: metadata_completa_custom.json")
+    with open('tes.json', 'w', encoding='utf-8') as f:
+        json.dump(StringAdapter.to_key_label_description(Strings.CUSTOM_FIELDS), f, indent=2, ensure_ascii=False, default=str)
+    #print(f"Processamento concluído.{}")
 
 
 if __name__ == "__main__":
